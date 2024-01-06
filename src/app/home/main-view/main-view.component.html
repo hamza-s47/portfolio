@@ -1,0 +1,86 @@
+<main class="hidden lg:flex">
+    <header class="h-screen w-[7.75%] bg-[#0D8679] flex justify-center items-center">
+      <main class="h-[90vh] flex flex-col justify-between items-center">
+        <div (click)="prev()"
+          class="cursor-pointer hover:animate-none hover:bg-red-300 w-12 h-12 rounded-full flex justify-center items-center transition-all duration-150 ease {{pageChange>1?'animate-pulse':'cursor-not-allowed'}}">
+          <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512">
+            <path
+              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="#ffffff" />
+          </svg>
+        </div>
+        <label class="hamburger relative">
+          <input type="checkbox" class="cursor-pointer absolute z-10 inset-0 w-full h-[50px] opacity-0" (click)="toggle()">
+          <svg viewBox="0 0 32 32">
+            <path class="line line-top-bottom"
+              d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+            </path>
+            <path class="line" d="M7 16 27 16"></path>
+          </svg>
+        </label>
+        <div (click)="next()"
+          class="cursor-pointer hover:animate-none hover:bg-red-300 w-12 h-12 rounded-full flex justify-center items-center transition-all duration-150 ease {{pageChange>=4?'animate-none cursor-not-allowed':'animate-pulse'}}">
+          <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512">
+            <path
+              d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+              fill="#ffffff" />
+          </svg>
+        </div>
+      </main>
+    </header>
+    <div
+      class="w-[0.25%] bg-[#28096b] transition-all duration-1000 ease {{pageChange==2?'h-[33.3vh]': pageChange==3?'h-[66.6vh]':pageChange==4?'h-screen':'h-0'}}">
+    </div>
+    <article class="flex justify-center items-center h-screen w-[30%] bg-white">
+      <main class="w-[80%] h-[90vh] flex flex-col justify-between">
+        <header class="flex justify-between items-center">
+          <div class="group cursor-pointer">
+            <div class="group-hover:hidden transition-all duration-200 ease-out">
+              <h2 class="font-poppinsBold text-4xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
+              <p class="font-poppinsReg text-sm">{{currentTime | date:'MMM dd, yyyy'}}</p>
+            </div>
+            <div class="group-hover:block hidden transition-all duration-200 ease-out">
+              <h2 class="font-poppinsBold text-4xl whitespace-nowrap">{{currentTime | date:'hh:mm a'}}</h2>
+              <p class="font-poppinsReg text-sm">{{currentTime | date:'ss'}}</p>
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </header>
+        <!-- LANDING -->
+        <section class="overflow-hidden">
+          <div class="relative h-[150px] 2xl:h-[170px] font-poppinsBold text-5xl 2xl:text-6xl  text-gray-500">
+            <h2
+              class="leading-tight absolute top-0 left-0 z-[1] transition-all duration-1000 ease {{pageChange==1 ?'left-0':'-left-96'}}">
+              M HAMZA <br><strong class="text-black">SIDDIQUI</strong></h2>
+            <!-- <h2
+              class="leading-tight absolute top-0 left-0 z-[2] transition-all duration-1000 ease {{pageChange==2 ?'left-0':'-left-96'}}">
+              ABOUT <br><strong class="text-black">ME</strong></h2>
+            <h2
+              class="leading-tight absolute top-0 left-0 z-[3] transition-all duration-1000 ease {{pageChange==3 ?'left-0':'-left-96'}}">
+              PROJECTS <br><strong class="text-black">TO SHOW</strong></h2>
+            <h2
+              class="leading-tight absolute top-0 left-0 z-[3] transition-all duration-1000 ease {{pageChange==4 ?'left-0':'-left-96'}}">
+              CONTACT <br><strong class="text-black">ME</strong></h2> -->
+  
+              <!-- <div class="leading-tight absolute top-0 left-0 z-[3] transition-all duration-1000 ease {{headerToggle?'left-0':'-left-96'}}">
+                hh
+              </div> -->
+          </div>
+          <!-- <div class="my-6"></div> -->
+          <div class="h-[50px] w-[37%] bg-gray-500"></div>
+        </section>
+        <footer class="font-poppinsMedium w-[37%] flex justify-between items-center">
+          <p class="text-2xl text-gray-500">|</p>
+          <p><strong>0{{pageChange}}</strong> - 04</p>
+        </footer>
+      </main>
+    </article>
+    <section class="relative h-screen w-[63%]">
+      <video src="../../../assets/videos/main2.mp4" [autoplay]="true" [muted]="true" [loop]="true"
+        class="w-full h-full object-cover"></video>
+      <!-- <div class="w-full h-full bg-black/50 absolute inset-0 z-10"></div> -->
+    </section>
+  </main>
