@@ -85,11 +85,14 @@
     </article>
     <section class="relative h-screen w-[63%]">
       <!-- LANDING -->
-      <video src="../../../assets/videos/main2.mp4" [autoplay]="true" [muted]="true" [loop]="true"
-        class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease {{pageChange == 1 ? 'scale-100 z-[1]' : 'scale-0'}}"></video>
+      <div class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 1 ? 'scale-100 z-[1]' : 'scale-0'}}">
+        <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover">
+      </div>
+      
         <!-- ABOUT -->
         <div class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 2 ? 'scale-100 z-[1]' : 'scale-0'}}">
-          <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover">
+          <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
+        class="absolute inset-0 w-full h-full object-cover"></video>
         </div>
         <!-- PROJECTS -->
         <div class="absolute inset-0 w-full h-full transition-all duration-1000 ease bg-green-400 {{pageChange == 3 ? 'scale-100 z-[1]' : 'scale-0'}}">
