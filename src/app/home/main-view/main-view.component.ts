@@ -16,6 +16,7 @@ export class MainViewComponent implements OnInit {
   currentTime: Date = new Date();
   pageChange:number = 1;
   headerCount:number = 1;
+  skillCounter: number = 0;
   headerToggle:boolean = false;
 
   constructor() { }
@@ -38,7 +39,15 @@ export class MainViewComponent implements OnInit {
     this.headerCount++;
     this.headerCount % 2 == 0 ? this.headerToggle = true : this.headerToggle = false;
   }
+  scrollToggle(){
+    this.pageChange == 1 ? this.pageChange = 4 : this.pageChange ==4 ?this.pageChange = 1:this.pageChange=1; 
+  }
+  skill(val:any){
+    this.skillCounter = val;
+  }
   ngOnInit(): void {
     
   }
+
+  
 }
