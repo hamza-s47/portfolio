@@ -49,5 +49,27 @@ export class MainViewComponent implements OnInit {
     
   }
 
+  projectData:any[] = [
+    {
+      image:"../../../assets/images/dp.jpg",
+      desc:"",
+      url:"https://falconpack.com/"
+    },
+    {
+      image:"../../../assets/images/dp.jpg",
+      desc:"",
+      url:"https://falconpack.com/"
+    },
+    {
+      image:"../../../assets/images/dp.jpg",
+      desc:"",
+      url:"https://falconpack.com/"
+    },
+    {
+      image:"../../../assets/images/dp.jpg",
+      desc:"",
+      url:"https://falconpack.com/"
+    }
+  ]
   
 }
