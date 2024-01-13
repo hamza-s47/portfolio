@@ -10,6 +10,9 @@ module.exports = {
         poppinsBlack:['poppinsBlack'],
         poppinsMedium:['poppinsMedium'],
         poppinsReg:['poppinsReg']
+      },
+      colors: {
+        primary:"#0096AB"
       }
     },
   },

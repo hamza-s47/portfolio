@@ -13,6 +13,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 })
 export class MainViewComponent implements OnInit {
 
+  // keyEvent:any;
   currentTime: Date = new Date();
   pageChange:number = 1;
   headerCount:number = 1;
@@ -45,6 +46,16 @@ export class MainViewComponent implements OnInit {
   skill(val:any){
     this.skillCounter = val;
   }
+  // onKeyPress(event:KeyboardEvent){
+  //   if(this.keyEvent == 'm'){
+  //     this.keyEvent = null;
+  //   }
+  //   else{
+  //     this.keyEvent = event.key;
+  //   }
+    
+  //   // console.warn(this.keyEvent)
+  // }
   ngOnInit(): void {
     
   }
@@ -58,7 +69,7 @@ export class MainViewComponent implements OnInit {
     {
       image:"../../../assets/images/dp.jpg",
       desc:"",
-      url:"https://falconpack.com/"
+      url:"https://falconpack.us/"
     },
     {
       image:"../../../assets/images/dp.jpg",
