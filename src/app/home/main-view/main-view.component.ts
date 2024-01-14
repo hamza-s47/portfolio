@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-main-view',
   standalone: true,
   imports: [
     CommonModule,
-    DatePipe
+    DatePipe,
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './main-view.component.html',
   styleUrl: './main-view.component.scss'
@@ -14,13 +17,14 @@ import { CommonModule, DatePipe } from '@angular/common';
 export class MainViewComponent implements OnInit {
 
   // keyEvent:any;
+  contactForm:FormGroup | any;
   currentTime: Date = new Date();
   pageChange:number = 1;
   headerCount:number = 1;
   skillCounter: number = 0;
   headerToggle:boolean = false;
 
-  constructor() { }
+  constructor(private _fb:FormBuilder) { }
 
   next(){
     if(!this.headerToggle){
@@ -56,8 +60,16 @@ export class MainViewComponent implements OnInit {
     
   //   // console.warn(this.keyEvent)
   // }
+  onSubmit(form:any){
+    console.warn(form)
+  }
   ngOnInit(): void {
-    
+    this.contactForm = this._fb.group({
+      name:['', Validators.required],
+      email:['', [Validators.required, Validators.pattern('')]],
+      contact:[''],
+      message:['', Validators.required]
+    })
   }
 
   projectData:any[] = [

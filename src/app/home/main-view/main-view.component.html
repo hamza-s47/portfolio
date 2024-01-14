@@ -36,7 +36,7 @@
   <article class="flex justify-center items-center h-screen w-[30%] bg-white">
     <main class="w-[80%] h-[90vh] flex flex-col justify-between">
       <header class="flex justify-between items-center">
-        <div class="group cursor-pointer">
+        <div class="group cursor-pointer text-gray-500">
           <div class="group-hover:hidden transition-all duration-200 ease-out">
             <h2 class="font-poppinsBold text-3xl xl:text-4xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
             <p class="font-poppinsReg text-sm">{{currentTime | date:'MMM dd, yyyy'}}</p>
@@ -59,7 +59,7 @@
       </header>
       <!-- LANDING -->
       <section class="overflow-hidden">
-        <div class="relative h-[150px] 2xl:h-[170px] font-poppinsBold text-5xl 2xl:text-6xl  text-gray-500">
+        <div class="relative h-[150px] 2xl:h-[170px] font-poppinsBold text-5xl 2xl:text-6xl  text-primary">
           <h2
             class="leading-tight absolute top-0 z-[1] transition-all duration-1000 ease {{pageChange==1 && !headerToggle ?'left-0':'-left-96'}}">
             M HAMZA <br><strong class="text-black">SIDDIQUI</strong></h2>
@@ -74,20 +74,20 @@
             CONTACT <br><strong class="text-black">ME</strong></h2>
 
           <div
-            class="absolute h-full top-0 z-[4] text-xl transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
+            class="absolute h-full top-0 z-[4] text-xl text-gray-500 transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
             <ul class="h-[90%] flex flex-col justify-around">
-              <li class="cursor-pointer hover:text-primary transition-all duration-300 ease">Download CV</li>
+              <li class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</li>
               <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Hacker Rank</a>
               <a href="https://www.linkedin.com/in/hamza-s47" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Linkedin</a>
-              <a href="https://www.linkedin.com/in/hamza-s47"
-                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Projects</a>
+              <!-- <a href="https://www.linkedin.com/in/hamza-s47"
+                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Projects</a> -->
             </ul>
           </div>
         </div>
         <!-- <div class="my-6"></div> -->
-        <div class="h-[50px] w-[37%] bg-gray-500"></div>
+        <div class="h-[50px] w-[37%] bg-primary"></div>
       </section>
       <footer class=" w-[37%] flex justify-between items-center">
         <p class="text-2xl text-gray-500">|</p>
@@ -108,7 +108,7 @@
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 2 ? 'scale-100 z-[1]' : 'scale-0'}}">
       <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video>
-      <div class="w-full h-full bg-primary/70 absolute inset-0 flex justify-center items-center">
+      <div class="w-full h-full [background:linear-gradient(144deg,#0096ABBF,#F64F59BF)] absolute inset-0 flex justify-center items-center">
         <div class="w-[80%]  text-white text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
             using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
@@ -121,7 +121,7 @@
           <h2 class="font-poppinsBold text-xl mb-4">SKILLS SNAPSHOT</h2>
           <!-- Skill -->
           <div class="w-full">
-            <div class="card bg-white/40 backdrop-blur-[75px]">
+            <div class="card-skill bg-white/40 backdrop-blur-[75px]">
               <a (mouseover)="skill(1)" (mouseleave)="skill(0)"
                 class="socialContainer hover:!bg-[#dd1b16] hover:duration-300">
                 <svg class="socialSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -242,69 +242,93 @@
 
     </div>
     <!-- CONTACT -->
-    <div class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'scale-100 z-[1]' : 'scale-0'}}">
+    <div
+      class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'scale-100 z-[1]' : 'scale-0'}}">
       <div
-        class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-gray-500 text-white transition-all duration-500 ease-in-out {{pageChange == 4 ? 'top-0 delay-700':'-top-96'}}">
+        class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-white transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
         <div class="w-[90%]">
           <h2 class="font-poppinsBold text-2xl">Get in touch</h2>
-          <p class=" text-sm w-[70%] mt-1">Whether you have questions or ideas to share, don't hesitate to get in touch! Your thoughts matter and I'm here to provide assistance.</p>
+          <p class=" text-sm w-[90%] 2xl:w-[75%] mt-1">Whether you have questions or ideas to share, don't hesitate to get in touch!
+            Your thoughts matter and I'm here to provide assistance.</p>
         </div>
       </div>
       <div class="w-[90%] h-[85vh] flex items-center justify-between">
-        <!-- Form -->
-        <div
-          class="w-[50%] relative overflow-hidden z-10 bg-white/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-red-500 before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-sky-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
-          <h2 class="text-2xl text-sky-900 font-bold mb-6">Leave your comments!</h2>
+        <div class="w-full flex justify-between items-end">
+          <!-- Form -->
+          <div
+            class="w-[60%] relative overflow-hidden z-10 bg-white/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-red-500 before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-sky-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
+            <h2 class="text-2xl text-sky-900 font-bold mb-6">Leave your comments!</h2>
 
-          <form >
-            <div class="mb-4">
-              <label class="block text-sm text-gray-600" for="name">Your Name</label>
-              <input class="mt-1 p-2 w-full border rounded-md" id="name" type="text" />
-              <small class="text-red-500" *ngIf="false">Name is required</small>
-            </div>
+            <form [formGroup]="contactForm" (submit)="onSubmit(contactForm.value)" class="text-gray-600">
+              <div class="mb-4">
+                <label class="block text-sm" for="name">Your Name</label>
+                <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="name" type="text" />
+                <small class="text-red-500" *ngIf="false">Name is required</small>
+              </div>
 
-            <div class="mb-4">
-              <label class="block text-sm text-gray-600" for="email">Your Email</label>
-              <input class="mt-1 p-2 w-full border rounded-md" id="email" type="email" />
-              <small class="text-red-500" *ngIf="false">Name is required</small>
-            </div>
+              <div class="mb-4">
+                <label class="block text-sm" for="email">Your Email</label>
+                <input formControlName="email" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="email" type="email" />
+                <small class="text-red-500" *ngIf="false">Name is required</small>
+              </div>
 
-            <div class="mb-4">
-              <label class="block text-sm text-gray-600" for="contact">Your Contact (optional)</label>
-              <input class="mt-1 p-2 w-full border rounded-md" id="contact" type="text" />
-            </div>
+              <div class="mb-4">
+                <label class="block text-sm" for="contact">Your Contact (optional)</label>
+                <input formControlName="contact" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="contact" type="text" />
+              </div>
 
-            <div class="mb-4">
-              <label class="block text-sm text-gray-600" for="bio">Your Message</label>
-              <textarea class="mt-1 p-2 w-full border rounded-md" rows="3" id="bio"></textarea>
-              <small class="text-red-500" *ngIf="false">Message is required</small>
-            </div>
+              <div class="mb-4">
+                <label class="block text-sm" for="bio">Your Message</label>
+                <textarea formControlName="message" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" rows="3"
+                  id="bio"></textarea>
+                <small class="text-red-500" *ngIf="false">Message is required</small>
+              </div>
 
-            <div class="flex justify-end">
-              <button
-                class="[background:linear-gradient(144deg,#af40ff,#5b42f3_50%,#00ddeb)] text-white px-4 py-2 font-bold rounded-md hover:opacity-80"
-                type="submit">
-                Update Profile
-              </button>
-            </div>
-          </form>
+              <div class="flex justify-end">
+                <button
+                  class="[background:linear-gradient(144deg,#02AABD,#00CDAC)] text-white px-4 py-2 font-bold rounded-md hover:scale-105 transition-all duration-300 ease disabled:cursor-not-allowed"
+                  type="submit">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- Form End -->
+          <ul class="wrapper">
+            <a href="mailto:hamza.siddiqui4747@gmail.com" class="icon facebook group">
+              <span class="tooltip">hamza.siddiqui4747&#64;gmail.com</span>
+              <span class="text-[#EA4335] group-hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512">
+                  <path
+                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+            </a>
+            <a href="https://linkedin.com/in/hamza-s47" target="_blank" class="icon twitter group mx-4">
+              <span class="tooltip whitespace-nowrap">&#64;hamza-s47</span>
+              <span class="text-[#0072B1] group-hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512">
+                  <path
+                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+            </a>
+            <a href="" class="icon instagram group">
+              <span class="tooltip whitespace-nowrap">+92 311 246 3375</span>
+              <span class="text-[#128C7E] group-hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512">
+                  <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+            </a>
+          </ul>
         </div>
-        <!-- Form End -->
 
-        <div class="cards">
-          <div class="card bg-white/50 backdrop-blur-[70px] text-gray-600 hover:!bg-[#c71610] hover:text-white">
-              <p class="tip">Email</p>
-              <a class="second-text text-xs">hamza.siddiqui4747&#64;gmail.com</a>
-          </div>
-          <div class="card bg-white/50 backdrop-blur-[70px] text-gray-600 hover:!bg-[#128c7e] hover:text-white">
-              <p class="tip">Whatsapp</p>
-              <p class="second-text text-xs">+92 311 246 3375</p>
-          </div>
-          <div class="card bg-white/50 backdrop-blur-[70px] text-gray-600 hover:!bg-[#0077b5] hover:text-white">
-              <p class="tip">Linkedin</p>
-              <p class="second-text text-xs">linkedin.com/in/hamza-s47</p>
-          </div>
-      </div>
+        
 
       </div>
     </div>
