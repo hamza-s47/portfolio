@@ -1,5 +1,5 @@
 <!-- (window:keydown)="onKeyPress($event)" -->
-<main class="font-poppinsMedium hidden lg:flex">
+<main class="overflow-hidden font-poppinsMedium hidden lg:flex">
   <header class="h-screen w-[7.75%] bg-primary flex justify-center items-center">
     <main class="h-[90vh] flex flex-col justify-between items-center">
       <div (click)="prev()"
@@ -87,7 +87,9 @@
           </div>
         </div>
         <!-- <div class="my-6"></div> -->
-        <div class="h-[50px] w-[37%] bg-primary"></div>
+        <div
+          class="h-[40px] transition-all duration-500 ease {{pageChange==2?'w-[30%]':pageChange==3?'w-[20%]':pageChange==4?'w-[10%]':'w-[40%]'}} bg-primary">
+        </div>
       </section>
       <footer class=" w-[37%] flex justify-between items-center">
         <p class="text-2xl text-gray-500">|</p>
@@ -108,7 +110,8 @@
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 2 ? 'scale-100 z-[1]' : 'scale-0'}}">
       <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video>
-      <div class="w-full h-full [background:linear-gradient(144deg,#0096ABBF,#F64F59BF)] absolute inset-0 flex justify-center items-center">
+      <div
+        class="w-full h-full [background:linear-gradient(144deg,#0096ABBF,#F64F59BF)] absolute inset-0 flex justify-center items-center">
         <div class="w-[80%]  text-white text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
             using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
@@ -221,23 +224,18 @@
     </div>
     <!-- PROJECTS -->
     <div
-      class="absolute inset-0 w-full h-full flex justify-center items-center transition-all duration-1000 ease bg-primary {{pageChange == 3 ? 'scale-100 z-[1]' : 'scale-0'}}">
-      <!-- Real Prjects -->
-      <div class="w-[90%] h-[90%] mx-auto flex flex-wrap">
-        <div class="book" *ngFor="let item of projectData.slice(0,8)">
-          <div class="ml-auto w-[80%] pr-3">
-            <p class=" text-xs mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Debitis cupiditate iusto excepturi vero repellendus asperiores deserunt recusandae ea!</p>
-            <a href="{{item.url}}" target="_blank"
-              class="bg-primary text-white lg:text-xs font-poppinsBold text-sm p-2 rounded-md">View</a>
-          </div>
-          <div class="cover">
-            <p>
-              <img src="{{item.image}}" alt="">
-            </p>
-          </div>
+      class="absolute inset-0 w-full h-full transition-all duration-1000 ease bg-primary {{pageChange == 3 ? 'scale-100 z-[1]' : 'scale-0'}}">
+
+      <a href="{{item.url}}" class="w-full h-[25vh] flex items-center justify-between text-white px-10 hover:scale-105 transition-all duration-300 ease {{item.color}}" *ngFor="let item of projectData">
+        <div>
+          <h3 class="text-2xl font-poppinsBold">{{item.title}}</h3>
+          <p>{{item.desc}}</p>
         </div>
-      </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="0 0 320 512">
+            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" fill="currentColor"/></svg>
+        </div>
+      </a>
 
 
     </div>
@@ -248,7 +246,8 @@
         class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-white transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
         <div class="w-[90%]">
           <h2 class="font-poppinsBold text-2xl">Get in touch</h2>
-          <p class=" text-sm w-[90%] 2xl:w-[75%] mt-1">Whether you have questions or ideas to share, don't hesitate to get in touch!
+          <p class=" text-sm w-[90%] 2xl:w-[75%] mt-1">Whether you have questions or ideas to share, don't hesitate to
+            get in touch!
             Your thoughts matter and I'm here to provide assistance.</p>
         </div>
       </div>
@@ -256,38 +255,41 @@
         <div class="w-full flex justify-between items-end">
           <!-- Form -->
           <div
-            class="w-[60%] relative overflow-hidden z-10 bg-white/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-red-500 before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-sky-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
+            class="w-[60%] relative overflow-hidden z-10 bg-white/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-yellow-500 before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-red-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
             <h2 class="text-2xl text-sky-900 font-bold mb-6">Leave your comments!</h2>
 
             <form [formGroup]="contactForm" (submit)="onSubmit(contactForm.value)" class="text-gray-600">
               <div class="mb-4">
                 <label class="block text-sm" for="name">Your Name</label>
-                <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="name" type="text" />
+                <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="name"
+                  type="text" />
                 <small class="text-red-500" *ngIf="false">Name is required</small>
               </div>
 
               <div class="mb-4">
                 <label class="block text-sm" for="email">Your Email</label>
-                <input formControlName="email" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="email" type="email" />
+                <input formControlName="email" class="focus:outline-primary mt-1 p-2 w-full border rounded-md"
+                  id="email" type="email" />
                 <small class="text-red-500" *ngIf="false">Name is required</small>
               </div>
 
               <div class="mb-4">
                 <label class="block text-sm" for="contact">Your Contact (optional)</label>
-                <input formControlName="contact" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="contact" type="text" />
+                <input formControlName="contact" class="focus:outline-primary mt-1 p-2 w-full border rounded-md"
+                  id="contact" type="text" />
               </div>
 
               <div class="mb-4">
                 <label class="block text-sm" for="bio">Your Message</label>
-                <textarea formControlName="message" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" rows="3"
-                  id="bio"></textarea>
+                <textarea formControlName="message" class="focus:outline-primary mt-1 p-2 w-full border rounded-md"
+                  rows="3" id="bio"></textarea>
                 <small class="text-red-500" *ngIf="false">Message is required</small>
               </div>
 
               <div class="flex justify-end">
                 <button
-                  class="[background:linear-gradient(144deg,#02AABD,#00CDAC)] text-white px-4 py-2 font-bold rounded-md hover:scale-105 transition-all duration-300 ease disabled:cursor-not-allowed"
-                  type="submit">
+                  class="[background:linear-gradient(144deg,#02AABD,#00CDAC)] text-white px-4 py-2 font-bold rounded-md transition-all duration-300 ease {{contactForm.invalid ? 'cursor-not-allowed':'hover:scale-105'}}"
+                  type="submit" [disabled]="contactForm.invalid">
                   Send
                 </button>
               </div>
@@ -315,7 +317,8 @@
                 </svg>
               </span>
             </a>
-            <a href="" class="icon instagram group">
+            <a href="https://api.whatsapp.com/send?phone=923112463375&text=Hello!" target="_blank"
+              class="icon instagram group">
               <span class="tooltip whitespace-nowrap">+92 311 246 3375</span>
               <span class="text-[#128C7E] group-hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512">
@@ -328,7 +331,7 @@
           </ul>
         </div>
 
-        
+
 
       </div>
     </div>

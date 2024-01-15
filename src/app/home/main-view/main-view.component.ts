@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-main-view',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     DatePipe,
     FormsModule,
     ReactiveFormsModule
@@ -74,24 +76,28 @@ export class MainViewComponent implements OnInit {
 
   projectData:any[] = [
     {
-      image:"../../../assets/images/dp.jpg",
+      title:"Falconpack UAE",
       desc:"",
-      url:"https://falconpack.com/"
+      url:"https://falconpack.com/",
+      color:"bg-orange-400"
     },
     {
-      image:"../../../assets/images/dp.jpg",
+      title:"Fougito",
       desc:"",
-      url:"https://falconpack.us/"
+      url:"",
+      color:"bg-blue-400"
     },
     {
-      image:"../../../assets/images/dp.jpg",
+      title:"Falconpack | B2B Site",
       desc:"",
-      url:"https://falconpack.com/"
+      url:"https://fpweb.demowbs.com/",
+      color:"bg-green-400"
     },
     {
-      image:"../../../assets/images/dp.jpg",
+      title:"CRUD Form (Personal Project)",
       desc:"",
-      url:"https://falconpack.com/"
+      url:"https://pr-crud.netlify.app/",
+      color:"bg-red-400"
     }
   ]
   
