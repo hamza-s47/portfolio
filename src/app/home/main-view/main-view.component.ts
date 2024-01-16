@@ -64,14 +64,32 @@ export class MainViewComponent implements OnInit {
   // }
   onSubmit(form:any){
     console.warn(form)
+    this.contactForm.reset()
   }
   ngOnInit(): void {
     this.contactForm = this._fb.group({
       name:['', Validators.required],
-      email:['', [Validators.required, Validators.pattern('')]],
+      email:['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       contact:[''],
       message:['', Validators.required]
     })
+  }
+
+  get isNameRequired(){
+    const nameControl = this.contactForm.get('name');
+    return nameControl.invalid && nameControl.touched;
+  }
+  get isEmailRequired(){
+    const emailControl = this.contactForm.get('email');
+    return emailControl.errors?.required && emailControl.touched;
+  }
+  get isEmailValid(){
+    const emailControl = this.contactForm.get('email');
+    return emailControl.errors?.pattern && emailControl.touched;
+  }
+  get isMessageRequired(){
+    const messageControl = this.contactForm.get('message');
+    return messageControl.invalid && messageControl.touched;
   }
 
   projectData:any[] = [

@@ -1,12 +1,11 @@
 <!-- (window:keydown)="onKeyPress($event)" -->
-<main class="overflow-hidden font-poppinsMedium hidden lg:flex">
+<main class="overflow-hidden font-poppinsMedium hidden lg:flex bg-myWhite">
   <header class="h-screen w-[7.75%] bg-primary flex justify-center items-center">
     <main class="h-[90vh] flex flex-col justify-between items-center">
       <div (click)="prev()"
-        class="w-12 h-12 rounded-full flex justify-center items-center transition-all duration-1000 ease {{pageChange<=1 || headerToggle?'opacity-0':'opacity-100 hover:bg-cyan-500 cursor-pointer'}}">
+        class="w-12 h-12 rounded-full flex justify-center items-center transition-all duration-1000 ease {{pageChange<=1 || headerToggle?'opacity-0':'opacity-100 hover:bg-red-300 cursor-pointer'}}">
         <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512">
-          <path
-            d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+          <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
             fill="#ffffff" />
         </svg>
       </div>
@@ -21,7 +20,7 @@
         </svg>
       </label>
       <div (click)="next()"
-        class="w-12 h-12 rounded-full flex justify-center items-center transition-all duration-1000 ease {{pageChange>=4 || headerToggle?'opacity-0':'opacity-100 hover:bg-cyan-500 cursor-pointer'}}">
+        class="w-12 h-12 rounded-full flex justify-center items-center transition-all duration-1000 ease {{pageChange>=4 || headerToggle?'opacity-0':'opacity-100 hover:bg-red-300 cursor-pointer'}}">
         <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512">
           <path
             d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
@@ -33,7 +32,7 @@
   <div
     class="w-[0.25%] bg-[#28096b] transition-all duration-1000 ease {{pageChange==2 && !headerToggle ?'h-[33.3vh]': pageChange==3 && !headerToggle?'h-[66.6vh]':pageChange==4 && !headerToggle?'h-screen':'h-0'}}">
   </div>
-  <article class="flex justify-center items-center h-screen w-[30%] bg-white">
+  <article class="flex justify-center items-center h-screen w-[30%] bg-myWhite">
     <main class="w-[80%] h-[90vh] flex flex-col justify-between">
       <header class="flex justify-between items-center">
         <div class="group cursor-pointer text-gray-500">
@@ -76,13 +75,13 @@
           <div
             class="absolute h-full top-0 z-[4] text-xl text-gray-500 transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
             <ul class="h-[90%] flex flex-col justify-around">
-              <li class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</li>
+              <a class="cursor-pointer hover:text-primary transition-all duration-300 ease">Download Résumé</a>
               <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Hacker Rank</a>
               <a href="https://www.linkedin.com/in/hamza-s47" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Linkedin</a>
-              <!-- <a href="https://www.linkedin.com/in/hamza-s47"
-                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Projects</a> -->
+              <a routerLink="/projects"
+                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Projects</a>
             </ul>
           </div>
         </div>
@@ -102,7 +101,9 @@
     <!-- LANDING -->
     <div
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 1 ? 'scale-100 z-[1]' : 'scale-0'}}">
-      <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover">
+      <!-- <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover"> -->
+      <video src="../../../assets/videos/home.mp4" [autoplay]="true" [muted]="true" [loop]="true"
+        class="absolute inset-0 w-full h-full object-cover"></video>
     </div>
 
     <!-- ABOUT -->
@@ -263,14 +264,15 @@
                 <label class="block text-sm" for="name">Your Name</label>
                 <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full border rounded-md" id="name"
                   type="text" />
-                <small class="text-red-500" *ngIf="false">Name is required</small>
+                <small class="text-red-500" *ngIf="isNameRequired">Name is required</small>
               </div>
 
               <div class="mb-4">
                 <label class="block text-sm" for="email">Your Email</label>
                 <input formControlName="email" class="focus:outline-primary mt-1 p-2 w-full border rounded-md"
                   id="email" type="email" />
-                <small class="text-red-500" *ngIf="false">Name is required</small>
+                <small class="text-red-500" *ngIf="isEmailRequired">Email is required</small>
+                <small class="text-red-500" *ngIf="isEmailValid">Enter valid email</small>
               </div>
 
               <div class="mb-4">
@@ -283,7 +285,7 @@
                 <label class="block text-sm" for="bio">Your Message</label>
                 <textarea formControlName="message" class="focus:outline-primary mt-1 p-2 w-full border rounded-md"
                   rows="3" id="bio"></textarea>
-                <small class="text-red-500" *ngIf="false">Message is required</small>
+                <small class="text-red-500" *ngIf="isMessageRequired">Message is required</small>
               </div>
 
               <div class="flex justify-end">
