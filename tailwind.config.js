@@ -12,9 +12,10 @@ module.exports = {
         poppinsReg:['poppinsReg']
       },
       colors: {
-        primary:"#ff6b81",
+        primary:"#e17055",
         myWhite:"#EEEADE",
-        myBlack:"#34495e"
+        myBlack:"#34495e",
+        myGray:"#95afc0"
       }
     },
   },

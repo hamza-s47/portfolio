@@ -112,7 +112,7 @@
       <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video>
       <div
-        class="w-full h-full [background:linear-gradient(144deg,#0096ABBF,#F64F59BF)] absolute inset-0 flex justify-center items-center">
+        class="w-full h-full [background:linear-gradient(180deg,#e17055BF,#fab1a0BF)] absolute inset-0 flex justify-center items-center">
         <div class="w-[80%]  text-white text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
             using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
@@ -241,10 +241,11 @@
 
     </div>
     <!-- CONTACT -->
-    <div
-      class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'scale-100 z-[1]' : 'scale-0'}}">
-      <div
-        class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-white transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
+    <div class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'scale-100 z-[1]' : 'scale-0'}}">
+      <video src="../../../assets/videos/contact.mp4" [autoplay]="true" [muted]="true" [loop]="true"
+        class="absolute -z-[2] inset-0 w-full h-full object-cover"></video>
+
+      <div class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-white transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
         <div class="w-[90%]">
           <h2 class="font-poppinsBold text-2xl">Get in touch</h2>
           <p class=" text-sm w-[90%] 2xl:w-[75%] mt-1">Whether you have questions or ideas to share, don't hesitate to
@@ -290,7 +291,7 @@
 
               <div class="flex justify-end">
                 <button
-                  class="[background:linear-gradient(144deg,#02AABD,#00CDAC)] text-white px-4 py-2 font-bold rounded-md transition-all duration-300 ease {{contactForm.invalid ? 'cursor-not-allowed':'hover:scale-105'}}"
+                  class="[background:linear-gradient(144deg,#e17055,#fab1a0)] text-white px-4 py-2 font-bold rounded-md transition-all duration-300 ease {{contactForm.invalid ? 'cursor-not-allowed':'hover:scale-105'}}"
                   type="submit" [disabled]="contactForm.invalid">
                   Send
                 </button>
@@ -298,7 +299,7 @@
             </form>
           </div>
           <!-- Form End -->
-          <ul class="wrapper">
+          <ul class="wrapper"> 
             <a href="mailto:hamza.siddiqui4747@gmail.com" class="icon facebook group">
               <span class="tooltip">hamza.siddiqui4747&#64;gmail.com</span>
               <span class="text-[#EA4335] group-hover:text-white">
