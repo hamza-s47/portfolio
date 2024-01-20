@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, HostBinding, OnInit, SimpleChanges, effect, signal } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './main-view.component.html',
   styleUrl: './main-view.component.scss'
 })
-export class MainViewComponent implements OnInit {
+export class MainViewComponent implements OnInit, DoCheck {
 
   // keyEvent:any;
   contactForm:FormGroup | any;
@@ -25,8 +25,21 @@ export class MainViewComponent implements OnInit {
   headerCount:number = 1;
   skillCounter: number = 0;
   headerToggle:boolean = false;
+  darkModeValue:any = localStorage.getItem('dark');
+  darkMode = signal<boolean>(JSON.parse(localStorage.getItem('darkMode') ?? 'false' ));
+  @HostBinding('class.dark') get mode(){
+    return this.darkMode();
+  }
 
-  constructor(private _fb:FormBuilder) { }
+  constructor(private _fb:FormBuilder) {
+
+    effect(()=> {
+      window.localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+    })
+   }
+  ngDoCheck(): void {
+    // console.warn(this.darkModeValue)
+  }
 
   next(){
     if(!this.headerToggle){
@@ -52,16 +65,17 @@ export class MainViewComponent implements OnInit {
   skill(val:any){
     this.skillCounter = val;
   }
-  // onKeyPress(event:KeyboardEvent){
-  //   if(this.keyEvent == 'm'){
-  //     this.keyEvent = null;
-  //   }
-  //   else{
-  //     this.keyEvent = event.key;
-  //   }
+  resume(url:any){
+    window.open(url, '_blank');
+  }
+  checkboxValue(val:any){
+    // console.warn(val.target.checked);
+    const value = val.target.checked;
+    JSON.stringify(localStorage.setItem('dark', value));
+
+    this.darkMode.set(!this.darkMode())
     
-  //   // console.warn(this.keyEvent)
-  // }
+  }
   onSubmit(form:any){
     console.warn(form)
     this.contactForm.reset()
@@ -73,6 +87,8 @@ export class MainViewComponent implements OnInit {
       contact:[''],
       message:['', Validators.required]
     })
+
+    // console.warn(this.darkModeValue)
   }
 
   get isNameRequired(){

@@ -1,5 +1,5 @@
 <!-- (window:keydown)="onKeyPress($event)" -->
-<main class="overflow-hidden font-poppinsMedium hidden lg:flex bg-myWhite">
+<main class="overflow-hidden font-poppinsMedium hidden lg:flex bg-myWhite dark:bg-myBlack">
   <header class="h-screen w-[7.75%] bg-primary flex justify-center items-center">
     <main class="h-[90vh] flex flex-col justify-between items-center">
       <div (click)="prev()"
@@ -30,12 +30,12 @@
     </main>
   </header>
   <div
-    class="w-[0.25%] bg-[#28096b] transition-all duration-1000 ease {{pageChange==2 && !headerToggle ?'h-[33.3vh]': pageChange==3 && !headerToggle?'h-[66.6vh]':pageChange==4 && !headerToggle?'h-screen':'h-0'}}">
+    class="w-[0.25%] bg-myBlack dark:bg-myWhite transition-all duration-1000 ease {{pageChange==2 && !headerToggle ?'h-[33.3vh]': pageChange==3 && !headerToggle?'h-[66.6vh]':pageChange==4 && !headerToggle?'h-screen':'h-0'}}">
   </div>
-  <article class="flex justify-center items-center h-screen w-[30%] bg-myWhite">
+  <article class="flex justify-center items-center h-screen w-[30%] bg-myWhite dark:bg-myBlack">
     <main class="w-[80%] h-[90vh] flex flex-col justify-between">
       <header class="flex justify-between items-center">
-        <div class="group cursor-pointer text-myGrayDark">
+        <div class="group cursor-pointer text-myGrayDark dark:text-myGray">
           <div class="group-hover:hidden transition-all duration-200 ease-out">
             <h2 class="font-poppinsBold text-3xl xl:text-4xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
             <p class="font-poppinsMedium text-sm">{{currentTime | date:'MMM dd, yyyy'}}</p>
@@ -45,15 +45,19 @@
             <p class="font-poppinsMedium text-sm">{{currentTime | date:'ss'}}</p>
           </div>
         </div>
-        <div (click)="scrollToggle()" title="{{pageChange==1?'Go to last page':'Go to first Page'}}"
+        <!-- <div (click)="scrollToggle()" title="{{pageChange==1?'Go to last page':'Go to first Page'}}"
           class="cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease hover:border-2 hover:p-1 border-myBlack border-dashed flex justify-center items-center">
           <img src="../../../assets/images/dp.jpg" alt="" class="w-full h-full object-cover rounded-full">
-        </div>
+        </div> -->
         <!-- DARK MODE -->
-        <!-- <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-          </label> -->
+
+        <label class="ui-switch">
+          <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
+          <div class="slider">
+            <div class="circle bg-red-600"></div>
+          </div>
+        </label>
+        
         <!-- DARK MODE END -->
       </header>
       <!-- LANDING -->
@@ -61,21 +65,21 @@
         <div class="relative h-[150px] 2xl:h-[170px] font-poppinsBold text-5xl 2xl:text-6xl  text-primary">
           <h2
             class="leading-tight absolute top-0 z-[1] transition-all duration-1000 ease {{pageChange==1 && !headerToggle ?'left-0':'-left-96'}}">
-            M HAMZA <br><strong class="text-myBlack">SIDDIQUI</strong></h2>
+            M HAMZA <br><strong class="text-myBlack dark:text-myWhite">SIDDIQUI</strong></h2>
           <h2
             class="leading-tight absolute top-0 z-[2] transition-all duration-1000 ease {{pageChange==2 && !headerToggle ?'left-0':'-left-96'}}">
-            ABOUT <br><strong class="text-myBlack">ME</strong></h2>
+            ABOUT <br><strong class="text-myBlack dark:text-myWhite">ME</strong></h2>
           <h2
             class="leading-tight absolute top-0 z-[3] transition-all duration-1000 ease {{pageChange==3 && !headerToggle ?'left-0':'-left-96'}}">
-            PROJECTS <br><strong class="text-myBlack">TO SHOW</strong></h2>
+            PROJECTS <br><strong class="text-myBlack dark:text-myWhite">TO SHOW</strong></h2>
           <h2
             class="leading-tight absolute top-0 z-[3] transition-all duration-1000 ease {{pageChange==4 && !headerToggle ?'left-0':'-left-96'}}">
-            CONTACT <br><strong class="text-myBlack">ME</strong></h2>
+            CONTACT <br><strong class="text-myBlack dark:text-myWhite">ME</strong></h2>
 
           <div
-            class="absolute h-full top-0 z-[4] text-xl text-myGrayDark transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
+            class="absolute h-full top-0 z-[4] text-xl text-myGrayDark dark:text-myGray transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
             <ul class="h-[90%] flex flex-col justify-around">
-              <a class="cursor-pointer hover:text-primary transition-all duration-300 ease">Download Résumé</a>
+              <a (click)="resume('../../assets/Resume.pdf')" class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</a>
               <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Hacker Rank</a>
               <a href="https://www.linkedin.com/in/hamza-s47" target="_blank"
@@ -90,8 +94,8 @@
           class="h-[40px] transition-all duration-500 ease {{pageChange==2?'w-[30%]':pageChange==3?'w-[20%]':pageChange==4?'w-[10%]':'w-[40%]'}} bg-primary">
         </div>
       </section>
-      <footer class=" w-[37%] flex justify-between items-center">
-        <p class="text-2xl text-myGrayDark">|</p>
+      <footer class=" w-[37%] flex justify-between items-center text-myGrayDark dark:text-myGray">
+        <p class="text-2xl">|</p>
         <p *ngIf="!headerToggle"><strong>0{{pageChange}}</strong> - 04</p>
         <p *ngIf="headerToggle">Menu</p>
       </footer>

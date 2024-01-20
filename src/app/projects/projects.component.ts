@@ -14,6 +14,10 @@ import { RouterModule } from '@angular/router';
 })
 export class ProjectsComponent {
 
+  resume(url:any){
+    window.open(url, '_blank');
+  }
+
 
   projectData:any[] = [
     {
