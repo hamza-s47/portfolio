@@ -1,5 +1,5 @@
-import { Component, DoCheck, HostBinding, OnInit, SimpleChanges, effect, signal } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { Component, HostBinding, OnInit, effect, signal, Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, DatePipe, isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './main-view.component.html',
   styleUrl: './main-view.component.scss'
 })
-export class MainViewComponent implements OnInit, DoCheck {
+export class MainViewComponent implements OnInit {
 
   // keyEvent:any;
   contactForm:FormGroup | any;
@@ -25,21 +25,31 @@ export class MainViewComponent implements OnInit, DoCheck {
   headerCount:number = 1;
   skillCounter: number = 0;
   headerToggle:boolean = false;
-  darkModeValue:any = localStorage.getItem('dark');
-  darkMode = signal<boolean>(JSON.parse(localStorage.getItem('darkMode') ?? 'false' ));
+  darkModeValue:any;
+  darkMode = signal<any>(this.darkValue);
   @HostBinding('class.dark') get mode(){
     return this.darkMode();
   }
 
-  constructor(private _fb:FormBuilder) {
+  constructor(private _fb:FormBuilder, @Inject(PLATFORM_ID) private platformId: object) {
 
     effect(()=> {
-      window.localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
-    })
+      if (isPlatformBrowser(this.platformId)){  // Using isPlatform for local storage error in ssr
+        localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+        setTimeout(() => {
+          this.darkModeValue = localStorage.getItem('dark');  // For toggle button, the boolean is string acctually
+        }, 1000);
+      }
+      
+    });
    }
-  ngDoCheck(): void {
-    // console.warn(this.darkModeValue)
-  }
+
+   get darkValue(){  // Returning the boolean value for signal variable
+    if (isPlatformBrowser(this.platformId)){
+      return JSON.parse(localStorage.getItem('darkMode') ?? 'false' );
+    }
+    
+   }
 
   next(){
     if(!this.headerToggle){
@@ -70,8 +80,11 @@ export class MainViewComponent implements OnInit, DoCheck {
   }
   checkboxValue(val:any){
     // console.warn(val.target.checked);
-    const value = val.target.checked;
-    JSON.stringify(localStorage.setItem('dark', value));
+    if (isPlatformBrowser(this.platformId)){
+      const value = val.target.checked;
+      JSON.stringify(localStorage.setItem('dark', value));
+    }
+    
 
     this.darkMode.set(!this.darkMode())
     
@@ -87,8 +100,6 @@ export class MainViewComponent implements OnInit, DoCheck {
       contact:[''],
       message:['', Validators.required]
     })
-
-    // console.warn(this.darkModeValue)
   }
 
   get isNameRequired(){
