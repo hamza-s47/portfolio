@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, effect, signal, Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, DatePipe, isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -38,7 +38,7 @@ export class MainViewComponent implements OnInit {
         localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
         setTimeout(() => {
           this.darkModeValue = localStorage.getItem('dark');  // For toggle button, the boolean is string acctually
-        }, 1000);
+        }, 500);
       }
       
     });
@@ -75,19 +75,20 @@ export class MainViewComponent implements OnInit {
   skill(val:any){
     this.skillCounter = val;
   }
-  resume(url:any){
-    window.open(url, '_blank');
-  }
   checkboxValue(val:any){
     // console.warn(val.target.checked);
     if (isPlatformBrowser(this.platformId)){
-      const value = val.target.checked;
-      JSON.stringify(localStorage.setItem('dark', value));
+      // const value = val.target.checked;
+      if(this.darkMode()){
+        JSON.stringify(localStorage.setItem('dark', 'false'));
+      }
+      else {
+        JSON.stringify(localStorage.setItem('dark', 'true'));
+      }
+      
     }
-    
-
+  
     this.darkMode.set(!this.darkMode())
-    
   }
   onSubmit(form:any){
     console.warn(form)

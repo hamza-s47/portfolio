@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -14,8 +14,26 @@ import { RouterModule } from '@angular/router';
 })
 export class ProjectsComponent {
 
-  resume(url:any){
-    window.open(url, '_blank');
+  darkMode = signal<any>(this.darkValue);
+  @HostBinding('class.dark') get mode(){
+    return this.darkMode();
+  }
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object){
+
+    effect(()=> {
+      if (isPlatformBrowser(this.platformId)){  // Using isPlatform for local storage error in ssr
+        localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+        JSON.stringify(localStorage.setItem('dark', this.darkMode()));
+      }
+      
+    });
+  }
+
+  get darkValue(){  // Returning the boolean value for signal variable
+    if (isPlatformBrowser(this.platformId)){
+      return JSON.parse(localStorage.getItem('darkMode') ?? 'false' );
+    }
   }
 
 
