@@ -1,11 +1,13 @@
 <!-- (window:keydown)="onKeyPress($event)" -->
-<main class="overflow-hidden font-poppinsMedium hidden lg:flex transition-all duration-300 ease bg-myWhite dark:bg-myBlack">
+<main
+  class="overflow-hidden font-poppinsMedium hidden lg:flex transition-all duration-300 ease bg-myWhite dark:bg-myBlack">
   <header class="h-screen w-[7.75%] bg-primary flex justify-center items-center">
     <main class="h-[90vh] flex flex-col justify-between items-center">
       <div (click)="prev()"
         class="w-12 h-12 rounded-full flex justify-center items-center transition-all duration-1000 ease {{pageChange<=1 || headerToggle?'opacity-0':'opacity-100 hover:bg-sec cursor-pointer'}}">
         <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512">
-          <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+          <path
+            d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
             fill="#ffffff" />
         </svg>
       </div>
@@ -45,10 +47,7 @@
             <p class="font-poppinsMedium text-sm">{{currentTime | date:'ss'}}</p>
           </div>
         </div>
-        <!-- <div (click)="scrollToggle()" title="{{pageChange==1?'Go to last page':'Go to first Page'}}"
-          class="cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease hover:border-2 hover:p-1 border-myBlack border-dashed flex justify-center items-center">
-          <img src="../../../assets/images/dp.jpg" alt="" class="w-full h-full object-cover rounded-full">
-        </div> -->
+
         <!-- DARK MODE -->
         <label class="ui-switch">
           <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
@@ -77,7 +76,8 @@
           <div
             class="absolute h-full top-0 z-[4] text-xl text-myGrayDark dark:text-myGray transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
             <ul class="h-[90%] flex flex-col justify-around">
-              <a href="../../../assets/Resume.pdf" download="M_Hamza_Siddiqui" class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</a>
+              <a href="../../../assets/Resume.pdf" download="M_Hamza_Siddiqui"
+                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</a>
               <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Hacker Rank</a>
               <a href="https://www.linkedin.com/in/hamza-s47" target="_blank"
@@ -229,25 +229,32 @@
     <div
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease bg-primary {{pageChange == 3 ? 'scale-100 z-[1]' : 'scale-0'}}">
 
-      <a href="{{item.url}}" class="w-full h-[25vh] flex items-center justify-between text-myWhite px-10 hover:scale-105 transition-all duration-300 ease {{item.color}}" *ngFor="let item of projectData">
+      <a href="{{item.url}}"
+        class="w-full h-[25vh] flex items-center justify-between text-myWhite px-10 hover:scale-105 transition-all duration-300 ease {{item.color}}"
+        *ngFor="let item of projectData">
         <div>
           <h3 class="text-2xl font-poppinsBold">{{item.title}}</h3>
           <p>{{item.desc}}</p>
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="0 0 320 512">
-            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" fill="currentColor"/></svg>
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              fill="currentColor" />
+          </svg>
         </div>
       </a>
 
 
     </div>
     <!-- CONTACT -->
-    <div class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'scale-100 z-[1]' : 'scale-0'}}">
+    <div
+      class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'scale-100 z-[1]' : 'scale-0'}}">
       <video src="../../../assets/videos/contact.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute -z-[2] inset-0 w-full h-full object-cover"></video>
 
-      <div class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-myWhite transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
+      <div
+        class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-myWhite transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
         <div class="w-[90%]">
           <h2 class="font-poppinsBold text-2xl">Get in touch</h2>
           <p class=" text-sm w-[90%] 2xl:w-[75%] mt-1">Whether you have questions or ideas to share, don't hesitate to
@@ -260,7 +267,14 @@
           <!-- Form -->
           <div
             class="w-[60%] relative overflow-hidden z-10 bg-myWhite/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-yellow-500 before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-red-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
-            <h2 class="text-2xl text-sky-900 font-bold mb-6">Leave your comments!</h2>
+            <div class="w-full flex justify-between items-center mb-3 ">
+              <h2 class="text-2xl text-myBlack font-bold ">Leave your comments!</h2>
+              <div class="relative cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease hover:border-2 hover:p-[2px] border-myBlack border-dashed flex justify-center items-center" title="{{isOnline?'Online':'Offline'}}">
+                <img src="../../../assets/images/dp.jpg" alt="" class="w-full h-full object-cover rounded-full">
+                <div class="absolute h-4 w-4 rounded-full top-0 right-0" [ngClass]="{'bg-green-500': isOnline, 'bg-yellow-400': !isOnline}"></div>
+              </div>
+
+            </div>
 
             <form [formGroup]="contactForm" (submit)="onSubmit(contactForm.value)" class="text-myGrayDark">
               <div class="mb-4">
@@ -301,7 +315,7 @@
             </form>
           </div>
           <!-- Form End -->
-          <ul class="wrapper"> 
+          <ul class="wrapper">
             <a href="mailto:hamza.siddiqui4747@gmail.com" class="icon facebook group">
               <span class="tooltip">hamza.siddiqui4747&#64;gmail.com</span>
               <span class="text-[#EA4335] group-hover:text-myWhite">

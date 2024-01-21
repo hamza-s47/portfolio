@@ -25,6 +25,7 @@ export class MainViewComponent implements OnInit {
   headerCount:number = 1;
   skillCounter: number = 0;
   headerToggle:boolean = false;
+  isOnline:any;
   darkModeValue:any;
   darkMode = signal<any>(this.darkValue);
   @HostBinding('class.dark') get mode(){
@@ -100,7 +101,18 @@ export class MainViewComponent implements OnInit {
       email:['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       contact:[''],
       message:['', Validators.required]
-    })
+    });
+
+    this.updateOnlineStatus(); // Initial check
+
+    // Listen for online/offline events
+    window.addEventListener('online', () => this.updateOnlineStatus());
+    window.addEventListener('offline', () => this.updateOnlineStatus());
+  }
+
+  updateOnlineStatus() {
+    this.isOnline = navigator.onLine;
+    console.warn("ddd",this.isOnline)
   }
 
   get isNameRequired(){
