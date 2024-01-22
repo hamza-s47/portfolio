@@ -137,25 +137,25 @@ export class MainViewComponent implements OnInit {
       title:"Falconpack UAE",
       desc:"",
       url:"https://falconpack.com/",
-      color:"bg-orange-400"
+      color:"bg-[#900C3F]"
     },
     {
       title:"Fougito",
       desc:"",
       url:"",
-      color:"bg-blue-400"
+      color:"bg-[#C70039]"
     },
     {
       title:"Falconpack | B2B Site",
       desc:"",
       url:"https://fpweb.demowbs.com/",
-      color:"bg-green-400"
+      color:"bg-[#F94C10]"
     },
     {
       title:"CRUD Form (Personal Project)",
       desc:"",
       url:"https://pr-crud.netlify.app/",
-      color:"bg-red-400"
+      color:"bg-[#FFB84C]"
     }
   ]
   
