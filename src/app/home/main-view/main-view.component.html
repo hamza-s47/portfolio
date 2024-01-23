@@ -266,12 +266,11 @@
         <div class="w-full flex justify-between items-end">
           <!-- Form -->
           <div
-            class="w-[60%] relative overflow-hidden z-10 bg-myWhite/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-yellow-500 before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-red-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
+            class="w-[60%] relative overflow-hidden z-10 bg-myWhite/50 backdrop-blur-[70px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-primary before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-sec after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
             <div class="w-full flex justify-between items-center mb-3 ">
               <h2 class="text-2xl text-myBlack font-bold ">Leave your comments!</h2>
-              <div class="relative cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease hover:border-2 hover:p-[2px] border-myBlack border-dashed flex justify-center items-center" title="{{isOnline?'Online':'Offline'}}">
+              <div class="relative cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease hover:border-2 hover:p-[2px] border-myBlack border-dashed flex justify-center items-center">
                 <img src="../../../assets/images/dp.jpg" alt="" class="w-full h-full object-cover rounded-full">
-                <div class="absolute h-4 w-4 rounded-full top-0 right-0" [ngClass]="{'bg-green-500': isOnline, 'bg-yellow-400': !isOnline}"></div>
               </div>
 
             </div>
