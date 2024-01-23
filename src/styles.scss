@@ -11,19 +11,22 @@
     font-family: poppinsMedium;
     src: url('./assets/fonts/Poppins-Medium.ttf');
 }
-
+html::selection {
+    background-color: #34495e;
+    color: #e17055;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #EEEADE;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #0096AB;
+    background: #e17055;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {

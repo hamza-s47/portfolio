@@ -122,28 +122,28 @@ export class MainViewComponent implements OnInit {
 
   projectData:any[] = [
     {
-      title:"Falconpack UAE",
+      title:"Falconpack US",
       desc:"",
-      url:"https://falconpack.com/",
-      color:"bg-[#2B3499]"
+      url:"https://falconpack.us/",
+      color:"bg-[#FFB75C]"
     },
     {
       title:"Fougito",
       desc:"",
       url:"",
-      color:"bg-[#FF6C22]"
+      color:"bg-[#FF9B50]"
     },
     {
       title:"Falconpack | B2B Site",
       desc:"",
       url:"https://fpweb.demowbs.com/",
-      color:"bg-[#FF9209]"
+      color:"bg-[#E25E3E]"
     },
     {
       title:"CRUD Form (Personal Project)",
       desc:"",
       url:"https://pr-crud.netlify.app/",
-      color:"bg-[#FFD099]"
+      color:"bg-[#C63D2F]"
     }
   ]
   
