@@ -47,7 +47,7 @@ export class ProjectsComponent {
     {
       title:"Falconpack US",
       image:"../../../assets/images/projects/falcon.png",
-      desc:"",
+      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam temporibus nisi odit quibusdam excepturi ipsam similique quas sit quod tenetur, eveniet, delectus, aliquid culpa! Sapiente consequuntur deleniti optio eius?",
       url:"https://falconpack.us/",
     },
     {
