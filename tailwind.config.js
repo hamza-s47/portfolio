@@ -17,6 +17,9 @@ module.exports = {
         myBlack:"#34495e",
         myGray:"#bdc3c7",
         myGrayDark:"#636e72"
+      },
+      backgroundImage:{
+        'light-bg':"url('/src/assets/images/backgrounds/light.webp')",
       }
     },
   },

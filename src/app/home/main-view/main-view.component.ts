@@ -38,7 +38,7 @@ export class MainViewComponent implements OnInit {
         localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
         setTimeout(() => {
           this.darkModeValue = localStorage.getItem('dark');  // For toggle button, the boolean is string acctually
-        }, 500);
+        }, 50);
       }
 
     });
@@ -124,25 +124,29 @@ export class MainViewComponent implements OnInit {
       title: "Falconpack US",
       desc: "This website/web-app was created utilizing Angular CLI as the foundation, our project seamlessly integrated Tailwind CSS and various Angular libraries to craft a modern web application. This dynamic and responsive interface, enriched with interactive components, efficiently interacted with backend APIs and databases. The project's outcome is a visually appealing, scalable, and user-friendly application, delivering a top-notch web experience.",
       url: "https://falconpack.us/",
-      color: "bg-[#FFB75C]"
+      color: "bg-[#9C2C77]",
+      colorL:"bg-[#9376E0]"
     },
     {
       title: "Fougito",
       desc: "Explore this dynamic website, powered by Angular CLI for seamless functionality and Tailwind CSS for a modern, stylish look. With intuitive navigation and responsive design, it adapts smoothly to your device. Experience a user-friendly interface that combines the best of technology and aesthetics for an engaging online journey.",
       url: "",
-      color: "bg-[#FF9B50]"
+      color: "bg-[#CD104D]",
+      colorL:"bg-[#E893CF]"
     },
     {
       title: "Falconpack | B2B Site",
       desc: "A dynamic e-commerce website crafted using Angular and Tailwind CSS. This project embodies innovation and user-friendly design, through a seamless fusion of front-end technologies, I've created an engaging online shopping experience, complete with dynamic functionalities and visually captivating layouts.",
       url: "https://fpweb.demowbs.com/",
-      color: "bg-[#E25E3E]"
+      color: "bg-[#E14D2A]",
+      colorL:"bg-[#F3BCC8]"
     },
     {
       title: "CRUD Form (Personal Project)",
       desc: "I've used Angular CLI and Tailwind CSS to create a feature-packed solution that simplifies data management. With CRUD operations, powerful search, and sorting capabilities, it's a breeze to handle the data. What's more, you can export (download) your existing data in PDF format with just a click!",
       url: "https://pr-crud.netlify.app/",
-      color: "bg-[#C63D2F]"
+      color: "bg-[#FD841F]",
+      colorL:"bg-[#F6FFA6]"
     }
   ]
 

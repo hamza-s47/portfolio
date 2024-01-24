@@ -40,11 +40,11 @@
 
         </div>
     </header>
-    <section class="w-full h-[75vh]">
-        <video [autoplay]="true" [muted]="true" [loop]="true" src="../../../assets/videos/home.mp4" class="w-full h-full object-cover"></video>
+    <section class="w-full h-[75vh] {{darkModeValue == 'true' ? 'bgDark':'bgLight'}}">
+        
     </section>
 
-    <section class="relative w-full h-[75vh]">
+    <section class="relative w-full h-[75vh] ">
         <video [autoplay]="true" [muted]="true" [loop]="true" src="../../../assets/videos/about.mp4" class="w-full h-full object-cover absolute inset-0"></video>
         <div class="w-full h-full bg-myWhite/70 dark:bg-myBlack/70 absolute inset-0 z-10">
 

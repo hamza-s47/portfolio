@@ -102,10 +102,10 @@
   <section class="relative h-screen w-[63%]">
     <!-- LANDING -->
     <div
-      class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 1 ? 'scale-100 z-[1]' : 'scale-0'}}">
+      class="bgMain absolute inset-0 w-full h-full border-l-myBlack dark:border-l-myWhite border-l-4 transition-all duration-1000 ease {{darkModeValue == 'true' ? 'bg-right':'bg-left'}}  {{pageChange == 1 ? 'scale-100 z-[1]' : 'scale-0'}}">
       <!-- <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover"> -->
-      <video src="../../../assets/videos/home.mp4" [autoplay]="true" [muted]="true" [loop]="true"
-        class="absolute inset-0 w-full h-full object-cover"></video>
+      <!-- <video src="../../../assets/videos/home.mp4" [autoplay]="true" [muted]="true" [loop]="true"
+        class="absolute inset-0 w-full h-full object-cover"></video> -->
     </div>
 
     <!-- ABOUT -->
@@ -114,8 +114,8 @@
       <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video>
       <div
-        class="w-full h-full bg-primary/80 absolute inset-0 flex justify-center items-center">
-        <div class="w-[80%]  text-myWhite text-lg">
+        class="w-full h-full bg-myWhite/80 dark:bg-myBlack/80 absolute inset-0 flex justify-center items-center">
+        <div class="w-[80%]  text-myBlack dark:text-myWhite text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
             using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
             into Angular applications, bringing dynamic functionality to the forefront.</p>
@@ -127,7 +127,7 @@
           <h2 class="font-poppinsBold text-xl mb-4">SKILLS SNAPSHOT</h2>
           <!-- Skill -->
           <div class="w-full">
-            <div class="card-skill bg-myWhite/40 backdrop-blur-[75px]">
+            <div class="card-skill bg-white/50 backdrop-blur-[10px]">
               <a (mouseover)="skill(1)" (mouseleave)="skill(0)"
                 class="socialContainer hover:!bg-[#dd1b16] hover:duration-300">
                 <svg class="socialSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -230,7 +230,7 @@
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease bg-primary {{pageChange == 3 ? 'scale-100 z-[1]' : 'scale-0'}}">
 
       <a routerLink="/projects"
-        class="w-full h-[25vh] flex items-center justify-between text-myWhite px-10 hover:scale-105 transition-all duration-300 ease {{item.color}}"
+        class="w-full h-[25vh] flex items-center justify-between text-myBlack dark:text-myWhite px-10 hover:scale-105 transition-all duration-300 ease {{darkModeValue == 'true'? item.color:item.colorL}}"
         *ngFor="let item of projectData">
         <div>
           <h3 class="text-2xl font-poppinsBold">{{item.title}}</h3>

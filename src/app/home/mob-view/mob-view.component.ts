@@ -33,7 +33,7 @@ export class MobViewComponent {
         localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
         setTimeout(() => {
           this.darkModeValue = localStorage.getItem('dark');  // For toggle button, the boolean is string acctually
-        }, 500);
+        }, 100);
       }
       
     });
