@@ -1,12 +1,53 @@
-<main class="lg:hidden h-screen flex items-end justify-end">
-    <section class="w-[95%] h-[85vh]">
-        <div class="w-full h-[15%] bg-primary">
+<main class="lg:hidden font-poppinsMedium relative bg-myWhite dark:bg-myBlack">
+    <header class="w-full h-[25vh] bg-primary sticky top-0 left-0 z-50 py-3 px-6">
+        <!-- Upper -->
+        <div class="flex justify-between items-center h-[50%]">
+            <!-- Menu -->
+            <label class="hamburger relative">
+                <input type="checkbox" class="cursor-pointer absolute z-10 inset-0 w-full h-[50px] opacity-0"
+                  (click)="toggle()">
+                <svg viewBox="0 0 32 32">
+                  <path class="line line-top-bottom"
+                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+                  </path>
+                  <path class="line !stroke-myBlack" d="M7 16 27 16"></path>
+                </svg>
+              </label>
+              <!-- Date / Time -->
+              <div class="group cursor-pointer text-myBlack">
+                <div class="group-hover:hidden transition-all duration-200 ease-out">
+                  <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
+                  <p class="font-poppinsMedium text-xs">{{currentTime | date:'MMM dd, yyyy'}}</p>
+                </div>
+                <div class="group-hover:block hidden transition-all duration-200 ease-out">
+                  <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'hh:mm a'}}</h2>
+                  <p class="font-poppinsMedium text-xs">{{currentTime | date:'ss'}}</p>
+                </div>
+              </div>
+        </div>
+        <!-- Lower -->
+        <div class="h-[50%] flex justify-between items-center">
+            
+            <div>
+                <h2 class="font-poppinsBold text-2xl text-myWhite">M Hamza<br><span>Siddiqui    </span></h2>
+            </div>
+            <label class="ui-switch">
+                <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
+                <div class="slider">
+                  <div class="circle bg-myGrayDark"></div>
+                </div>
+              </label>
 
         </div>
+    </header>
+    <section class="w-full h-[75vh]">
+        <video [autoplay]="true" [muted]="true" [loop]="true" src="../../../assets/videos/home.mp4" class="w-full h-full object-cover"></video>
+    </section>
 
-        <div class="relative w-full h-[85%]">
-            <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true" class="absolute -z-10 w-full h-full object-cover"></video>
-            <div class="w-full h-full bg-black/50 "></div>
+    <section class="relative w-full h-[75vh]">
+        <video [autoplay]="true" [muted]="true" [loop]="true" src="../../../assets/videos/about.mp4" class="w-full h-full object-cover absolute inset-0"></video>
+        <div class="w-full h-full bg-myWhite/70 dark:bg-myBlack/70 absolute inset-0 z-10">
+
         </div>
     </section>
 </main>
