@@ -159,3 +159,10 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.mask {
+  -webkit-mask-image: url('../../../assets/images/splash.svg');
+  mask-image: url('../../../assets/images/splash.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
