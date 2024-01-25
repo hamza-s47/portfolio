@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { CommonModule, DatePipe, isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -29,6 +29,49 @@ export class MainViewComponent implements OnInit {
   darkMode = signal<any>(this.darkValue);
   @HostBinding('class.dark') get mode() {
     return this.darkMode();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: any) {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      if (!this.headerToggle) {
+        if (this.pageChange < 4) {
+          this.pageChange++;
+        }
+      }
+    }
+
+    if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      if (!this.headerToggle) {
+        if (this.pageChange > 1) {
+          this.pageChange--;
+        }
+      }
+    }
+
+    if (event.key === 'Home') {
+      if (!this.headerToggle) {
+        this.pageChange = 1;
+      }
+    }
+
+    if (event.key === 'End') {
+      if (!this.headerToggle) {
+        this.pageChange = 4;
+      }
+    }
+
+    if (event.key === 'm' || event.key === 'M') {
+      this.headerCount++;
+      this.headerCount % 2 == 0 ? this.headerToggle = true : this.headerToggle = false;
+    }
+
+    if (event.key === 'Escape') {
+      this.headerToggle = false;
+    }
+
+    console.warn(event.key)
+    
   }
 
   constructor(private _fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: object) {
@@ -68,9 +111,9 @@ export class MainViewComponent implements OnInit {
     this.headerCount++;
     this.headerCount % 2 == 0 ? this.headerToggle = true : this.headerToggle = false;
   }
-  scrollToggle() {
-    this.pageChange == 1 ? this.pageChange = 4 : this.pageChange == 4 ? this.pageChange = 1 : this.pageChange = 1;
-  }
+  // scrollToggle() {
+  //   this.pageChange == 1 ? this.pageChange = 4 : this.pageChange == 4 ? this.pageChange = 1 : this.pageChange = 1;
+  // }
   skill(val: any) {
     this.skillCounter = val;
   }

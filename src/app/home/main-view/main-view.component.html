@@ -1,5 +1,5 @@
 <!-- (window:keydown)="onKeyPress($event)" -->
-<main
+<main (change)="handleKeyboardEvent($event)"
   class="overflow-hidden font-poppinsMedium hidden lg:flex transition-all duration-300 ease bg-myWhite dark:bg-myBlack">
   <header class="h-screen w-[7.75%] bg-primary flex justify-center items-center">
     <main class="h-[90vh] flex flex-col justify-between items-center">
@@ -37,15 +37,9 @@
   <article class="flex justify-center items-center h-screen w-[30%] bg-myWhite dark:bg-myBlack">
     <main class="w-[80%] h-[90vh] flex flex-col justify-between">
       <section class="flex justify-between items-center">
-        <div class="group cursor-pointer text-myGrayDark dark:text-myGray">
-          <div class="group-hover:hidden transition-all duration-200 ease-out">
+        <div class="cursor-default text-myGrayDark dark:text-myGray">
             <h2 class="font-poppinsBold text-3xl xl:text-4xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
             <p class="font-poppinsMedium text-sm">{{currentTime | date:'MMM dd, yyyy'}}</p>
-          </div>
-          <div class="group-hover:block hidden transition-all duration-200 ease-out">
-            <h2 class="font-poppinsBold text-3xl xl:text-4xl whitespace-nowrap">{{currentTime | date:'hh:mm a'}}</h2>
-            <p class="font-poppinsMedium text-sm">{{currentTime | date:'ss'}}</p>
-          </div>
         </div>
 
         <!-- DARK MODE -->
@@ -89,7 +83,7 @@
         </div>
         <!-- <div class="my-6"></div> -->
         <div
-          class="h-[20px] transition-all duration-500 ease {{pageChange==2?'w-[30%]':pageChange==3?'w-[20%]':pageChange==4?'w-[10%]':'w-[40%]'}} bg-primary">
+          class="h-[30px] transition-all duration-500 ease {{pageChange==2?'w-[30%]':pageChange==3?'w-[20%]':pageChange==4?'w-[10%]':'w-[40%]'}} bg-primary">
         </div>
       </section>
       <footer class=" w-[37%] flex justify-between items-center text-myGrayDark dark:text-myGray">
@@ -102,15 +96,19 @@
   <section class="relative h-screen w-[63%]">
     <!-- LANDING -->
     <div
-      class="bgMain flex justify-end items-start dark:justify-start dark:items-end absolute inset-0 w-full h-full bg-myWhite dark:bg-myBlack border-l-myBlack dark:border-l-myWhite border-l-4 transition-all duration-1000 ease {{darkModeValue == 'true' ? 'bg-right':'bg-left'}}  {{pageChange == 1 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
+      class="bgMain flex justify-end absolute inset-0 w-full h-full bg-myWhite dark:bg-myBlack border-l-myBlack dark:border-l-myWhite border-l-4 bg-left transition-all duration-1000 ease  {{pageChange == 1 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
       <!-- <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover"> -->
       <!-- <video src="../../../assets/videos/home.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video> -->
-      <div class="w-[55%] h-[80%] flex flex-col dark:flex-col-reverse justify-center items-center">
-        <div class="mask w-full h-full transition-all duration-300 ease pt-4 dark:pt-0">
-          <img src="../../../assets/images/dp.jpg" alt="" class="w-full h-full object-cover">
+      <div class="w-[55%] h-[80%] flex flex-col justify-center items-center pr-2">
+        <div class="mask w-full h-full transition-all duration-300 ease">
+          <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full h-full object-cover">
         </div>
-        <h2 class="font-poppinsMedium text-myBlack dark:text-myWhite w-[90%] text-center"><span class="font-poppinsBold text-3xl">Frontend Angular Developer</span><br>Expert in front-end development and single page applications (SPAs).</h2>
+        
+        <div class="text-myBlack dark:text-myWhite text-center">
+          <h2 class="font-poppinsBold text-3xl text-primary">Frontend Angular Developer</h2>
+          <p class="w-[80%] mx-auto text-sm mt-2">Expert in front-end development, having proven track record in building scalable Single Page Applications (SPAs). <span class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
+        </div>
       </div>
     </div>
 
@@ -119,7 +117,7 @@
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 2 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
       <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video>
-      <div class="w-full h-full bg-myWhite/80 dark:bg-myBlack/80 absolute inset-0 flex justify-center items-center">
+      <div class="w-full h-full bg-myWhite/60 dark:bg-myBlack/60 absolute inset-0 flex justify-center items-center">
         <div class="w-[80%]  text-myBlack dark:text-myWhite text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
             using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
@@ -254,12 +252,12 @@
     </div>
     <!-- CONTACT -->
     <div
-      class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease bg-primary {{pageChange == 4 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
+      class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease {{pageChange == 4 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
       <video src="../../../assets/videos/contact.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute -z-[2] inset-0 w-full h-full object-cover"></video>
 
       <div
-        class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-transparent shadow-lg text-myWhite transition-all duration-500 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
+        class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center bg-primary/5 text-myWhite transition-all duration-700 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
         <div class="w-[90%]">
           <h2 class="font-poppinsBold text-2xl">Get in touch</h2>
           <p class=" text-sm w-[90%] 2xl:w-[75%] mt-1">Whether you have questions or ideas to share, don't hesitate to
@@ -271,12 +269,12 @@
         <div class="w-full flex justify-between items-end">
           <!-- Form -->
           <div
-            class="w-[60%] relative overflow-hidden z-10 bg-myWhite/20 backdrop-blur-[20px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-[#0abde3] before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-[#ff6b6b] after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
+            class="w-[60%] relative overflow-hidden z-10 bg-myWhite/20 backdrop-blur-[20px] p-8 rounded-lg shadow-md before:w-24 before:h-24 before:absolute before:bg-[#FFD700] before:rounded-full before:-z-10 before:blur-2xl after:w-32 after:h-32 after:absolute after:bg-[#800080] after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12">
             <div class="w-full flex justify-between items-center mb-3 ">
               <h2 class="text-2xl text-myWhite font-bold ">Leave your comments!</h2>
               <div
                 class="relative cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease hover:border-2 hover:p-[2px] border-myBlack border-dashed flex justify-center items-center">
-                <img src="../../../assets/images/dp.jpg" alt="" class="w-full h-full object-cover rounded-full">
+                <img src="../../../assets/images/dp.webp" alt="" class="w-full h-full object-cover rounded-full">
               </div>
 
             </div>
