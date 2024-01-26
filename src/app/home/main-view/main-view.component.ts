@@ -60,18 +60,6 @@ export class MainViewComponent implements OnInit {
         this.pageChange = 4;
       }
     }
-
-    if (event.key === 'm' || event.key === 'M') {
-      this.headerCount++;
-      this.headerCount % 2 == 0 ? this.headerToggle = true : this.headerToggle = false;
-    }
-
-    if (event.key === 'Escape') {
-      this.headerToggle = false;
-    }
-
-    console.warn(event.key)
-    
   }
 
   constructor(private _fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: object) {
