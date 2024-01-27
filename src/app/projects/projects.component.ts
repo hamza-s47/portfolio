@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class ProjectsComponent {
 
-  lineClamp: boolean = true;
+  selectedIndex: number | null = null;
   darkMode = signal<any>(this.darkValue);
   @HostBinding('class.dark') get mode() {
     return this.darkMode();
@@ -37,12 +37,13 @@ export class ProjectsComponent {
     }
   }
 
-  toggleLineclamp(item: boolean) {
-    this.projectData.forEach(e=>{
-      e.lineClamp = !e.lineClamp;
-    })
+  toggleLineclamp(index: number) {
+    if (this.selectedIndex === index) {
+      this.selectedIndex = null;
+    } else {
+      this.selectedIndex = index;
+    }
   }
-
 
   projectData: any[] = [
     {
@@ -82,4 +83,6 @@ export class ProjectsComponent {
       lineClamp: true
     }
   ]
+
+  
 }

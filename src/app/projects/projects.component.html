@@ -42,13 +42,13 @@
 
                 <div class="xl:w-1/3 md:w-1/2 p-4" *ngFor="let item of projectData; index as i">
                     <div class="border border-myBlack dark:border-myWhite p-6 rounded-lg">
-                        <a [href]="item.url"
+                        <a [href]="item.url" target="_blank"
                             class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-primary text-myWhite mb-4 hover:scale-110 transition-all duration-200 ease">
                             <p>{{i+1}}</p>
                         </a>
                         <h2 class="font-poppinsBold text-lg text-myBlack dark:text-myWhite mb-2">{{item.title}}</h2>
-                        <p class="leading-relaxed text-base text-myBlack dark:text-myWhite" [ngClass]="{'line-clamp-3':item.lineClamp}">{{item.desc}}</p>
-                        <button class="text-primary cursor-pointer" (click)="toggleLineclamp(item.lineClamp)">{{item.lineClamp ? 'Read more' : 'Read less'}}</button>
+                        <p class="leading-relaxed text-base text-myBlack dark:text-myWhite" [ngClass]="{'line-clamp-3':selectedIndex !== i}">{{item.desc}}</p>
+                        <button class="text-primary cursor-pointer" (click)="toggleLineclamp(i)">{{selectedIndex !== i ? 'Read more' : 'Read less'}}</button>
                     </div>
                 </div>
             </div>
