@@ -1,55 +1,79 @@
-<main class="lg:hidden font-poppinsMedium relative bg-myWhite dark:bg-myBlack">
-    <header class="w-full h-[25vh] bg-primary sticky top-0 left-0 z-50 py-3 px-6">
-        <!-- // Upper -->
-        <div class="flex justify-between items-center h-[50%]">
-            <!-- // Menu -->
-            <label class="hamburger relative">
-                <input type="checkbox" class="cursor-pointer absolute z-10 inset-0 w-full h-[50px] opacity-0"
-                  (click)="toggle()">
-                <svg viewBox="0 0 32 32">
-                  <path class="line line-top-bottom"
-                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
-                  </path>
-                  <path class="line !stroke-myBlack" d="M7 16 27 16"></path>
-                </svg>
-              </label>
-              <!-- // Date / Time -->
-              <div class="group cursor-pointer text-myBlack">
-                <div class="group-hover:hidden transition-all duration-200 ease-out">
-                  <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
-                  <p class="font-poppinsMedium text-xs">{{currentTime | date:'MMM dd, yyyy'}}</p>
-                </div>
-                <div class="group-hover:block hidden transition-all duration-200 ease-out">
-                  <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'hh:mm a'}}</h2>
-                  <p class="font-poppinsMedium text-xs">{{currentTime | date:'ss'}}</p>
-                </div>
-              </div>
+<main class="lg:hidden font-poppinsMedium relative transition-all duration-300 ease bg-myWhite dark:bg-myBlack">
+  <!-- Inner Header -->
+  <section class="w-full h-[75vh] bg-myWhite dark:bg-myBlack fixed left-0 transition-all duration-500 ease {{headerToggle ? 'top-[25vh] z-50' : '-top-[100vh]'}}">
+    Menu
+  </section>
+  <!-- Inner Header End -->
+  <header class="w-full h-[25vh] bg-primary sticky top-0 left-0 z-50 py-3 px-6">
+    <!-- // Upper -->
+    <div class="flex justify-between items-center h-[50%]">
+      <!-- // Menu -->
+      <label class="hamburger relative">
+        <input type="checkbox" class="cursor-pointer absolute z-10 inset-0 w-full h-[50px] opacity-0"
+          (click)="toggle()">
+        <svg viewBox="0 0 32 32">
+          <path class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+          </path>
+          <path class="line !stroke-myBlack" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+      <!-- // Date / Time -->
+      <div class="group cursor-pointer text-myBlack">
+        <div class="group-hover:hidden transition-all duration-200 ease-out">
+          <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
+          <p class="font-poppinsMedium text-xs">{{currentTime | date:'MMM dd, yyyy'}}</p>
         </div>
-        <!-- //Lower -->
-        <div class="h-[50%] flex justify-between items-center">
-            
-            <div>
-                <h2 class="font-poppinsBold text-2xl text-myWhite">M Hamza<br><span>Siddiqui    </span></h2>
-            </div>
-            <label class="ui-switch">
-                <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
-                <div class="slider">
-                  <div class="circle bg-myGrayDark"></div>
-                </div>
-              </label>
-
-        </div>
-    </header>
-    <section class="w-full">
-      <div class="w-[90%] mx-auto flex flex-col justify-center items-center pr-2">
-        <div class="mask w-full h-full transition-all duration-300 ease">
-          <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full h-full object-cover">
-        </div>
-        
-        <div class="text-myBlack dark:text-myWhite text-center">
-          <h2 class="font-poppinsBold text-3xl text-primary">Frontend Angular Developer</h2>
-          <p class="w-[90%] mx-auto mt-2">Expert in front-end development, having proven track record in building scalable Single Page Applications (SPAs). <br><span class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
+        <div class="group-hover:block hidden transition-all duration-200 ease-out">
+          <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'hh:mm a'}}</h2>
+          <p class="font-poppinsMedium text-xs">{{currentTime | date:'ss'}}</p>
         </div>
       </div>
-    </section>
+    </div>
+    <!-- //Lower -->
+    <div class="relative h-[50%] flex justify-between items-center">
+      <div></div>
+      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'hero' && !headerToggle ?'left-0':'-left-96'}}">
+        <h2>M Hamza<br><span>Siddiqui</span></h2>
+      </div>
+      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'about' && !headerToggle ?'left-0':'-left-96'}}">
+        <h2>About<br><span>Me</span></h2>
+      </div>
+      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'projects' && !headerToggle ?'left-0':'-left-96'}}">
+        <h2>My<br><span>Projects</span></h2>
+      </div>
+      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'contact' && !headerToggle ?'left-0':'-left-96'}}">
+        <h2>Contact<br><span>Me</span></h2>
+      </div>
+      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{headerToggle ?'left-0':'-left-96'}}">
+        <h2>Menu</h2>
+      </div>
+      <label class="ui-switch">
+        <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
+        <div class="slider">
+          <div class="circle bg-myGrayDark"></div>
+        </div>
+      </label>
+
+    </div>
+  </header>
+  <section class="w-full h-[75vh]">
+    <div class="w-[90%] h-full mx-auto flex flex-col justify-center items-center pr-2">
+      <div class="mask w-full transition-all duration-300 ease">
+        <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full object-cover">
+      </div>
+
+      <div class="text-myBlack dark:text-myWhite text-center">
+        <h2 class="font-poppinsBold text-3xl text-primary">Frontend Angular Developer</h2>
+        <p class="mx-auto mt-2">Expert in front-end development, having proven track record in building scalable
+          Single Page Applications (SPAs).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full h-screen">about</section>
+  <section class="w-full h-screen">projects</section>
+  <section class="w-full min-h-screen">contact</section>
+
+  <footer class="w-full"></footer>
 </main>
