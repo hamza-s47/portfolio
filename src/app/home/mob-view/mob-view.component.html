@@ -40,14 +40,16 @@
 
         </div>
     </header>
-    <section class="w-full h-[75vh] {{darkModeValue == 'true' ? 'bgDark':'bgLight'}}">
-        
-    </section>
-
-    <section class="relative w-full h-[75vh] ">
-        <video [autoplay]="true" [muted]="true" [loop]="true" src="../../../assets/videos/about.mp4" class="w-full h-full object-cover absolute inset-0"></video>
-        <div class="w-full h-full bg-myWhite/70 dark:bg-myBlack/70 absolute inset-0 z-10">
-
+    <section class="w-full">
+      <div class="w-[90%] mx-auto flex flex-col justify-center items-center pr-2">
+        <div class="mask w-full h-full transition-all duration-300 ease">
+          <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full h-full object-cover">
         </div>
+        
+        <div class="text-myBlack dark:text-myWhite text-center">
+          <h2 class="font-poppinsBold text-3xl text-primary">Frontend Angular Developer</h2>
+          <p class="w-[90%] mx-auto mt-2">Expert in front-end development, having proven track record in building scalable Single Page Applications (SPAs). <br><span class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
+        </div>
+      </div>
     </section>
 </main>

@@ -1,12 +1,3 @@
-.bgLight{
-    background-image: url('../../../assets/images/backgrounds/light.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.bgDark{
-    background-image: url('../../../assets/images/backgrounds/dark.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+.mask {
+    animation: splashes 2s infinite;
+  }

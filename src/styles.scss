@@ -149,3 +149,42 @@
     height: 0;
   }
   // Dark Mode Button End
+
+  // MASK
+  @keyframes splashes {
+    0% {
+      -webkit-mask-image: url('./assets/images/splashes/splash.svg');
+      mask-image: url('./assets/images/splashes/splash.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: right;
+      -webkit-mask-position: right;
+    }
+    25%{
+      -webkit-mask-image: url('./assets/images/splashes/splash.svg');
+      mask-image: url('./assets/images/splashes/splash.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: right;
+      -webkit-mask-position: right;
+    }
+  
+    50% {
+      -webkit-mask-image: url('./assets/images/splashes/splash2.svg');
+      mask-image: url('./assets/images/splashes/splash2.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: right;
+      -webkit-mask-position: right;
+    }
+  
+    100% {
+      -webkit-mask-image: url('./assets/images/splashes/splash3.svg');
+      mask-image: url('./assets/images/splashes/splash3.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: right;
+      -webkit-mask-position: right;
+    }
+  }
+  // MASK END
