@@ -23,6 +23,7 @@ export class MobViewComponent implements OnInit {
   pageChange:string = 'hero';
   headerCount: number = 1;
   headerToggle: boolean = false;
+  landingPage:boolean = true;
   darkModeValue:any;
   darkMode = signal<any>(this.darkValue);
   @HostBinding('class.dark') get mode(){
@@ -35,7 +36,7 @@ export class MobViewComponent implements OnInit {
     if(!this.headerToggle){
       if(scrollY > 400 && scrollY < 1100){
         this.pageChange ='about';
-        console.warn(this.pageChange)
+        // console.warn(this.pageChange)
       }
       else if (scrollY > 1100 && scrollY < 1750){
         this.pageChange ='projects';
@@ -46,6 +47,8 @@ export class MobViewComponent implements OnInit {
       else {
         this.pageChange = 'hero'
       }
+
+      scrollY > 5 ? this.landingPage = false : this.landingPage = true;
     }
     
     

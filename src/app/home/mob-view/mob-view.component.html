@@ -1,63 +1,56 @@
 <main class="lg:hidden font-poppinsMedium relative transition-all duration-300 ease bg-myWhite dark:bg-myBlack">
+  <!-- Landing -->
+  <section class="w-full h-screen fixed z-40 transition-all duration-700 ease {{landingPage ? 'inset-0':'-top-[100vh]'}}">
+    <img src="../../../assets/images/backgrounds/landing.jpg" alt="" class="w-full h-full object-cover">
+  </section>
+  <!-- Landing End -->
   <!-- Inner Header -->
-  <section class="w-full h-[75vh] bg-myWhite dark:bg-myBlack fixed left-0 transition-all duration-500 ease {{headerToggle ? 'top-[25vh] z-50' : '-top-[100vh]'}}">
-    Menu
+  <section
+    class="w-full h-[90vh] bg-myWhite dark:bg-myBlack fixed top-[10vh] transition-all duration-500 ease {{headerToggle ? 'left-0 z-50' : '-left-[100vw]'}}">
+    <label class="ui-switch">
+      <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
+      <div class="slider">
+        <div class="circle bg-myGrayDark"></div>
+      </div>
+    </label>
   </section>
   <!-- Inner Header End -->
-  <header class="w-full h-[25vh] bg-primary sticky top-0 left-0 z-50 py-3 px-6">
-    <!-- // Upper -->
-    <div class="flex justify-between items-center h-[50%]">
-      <!-- // Menu -->
-      <label class="hamburger relative">
-        <input type="checkbox" class="cursor-pointer absolute z-10 inset-0 w-full h-[50px] opacity-0"
-          (click)="toggle()">
-        <svg viewBox="0 0 32 32">
-          <path class="line line-top-bottom"
-            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
-          </path>
-          <path class="line !stroke-myBlack" d="M7 16 27 16"></path>
-        </svg>
-      </label>
-      <!-- // Date / Time -->
-      <div class="group cursor-pointer text-myBlack">
-        <div class="group-hover:hidden transition-all duration-200 ease-out">
-          <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
-          <p class="font-poppinsMedium text-xs">{{currentTime | date:'MMM dd, yyyy'}}</p>
-        </div>
-        <div class="group-hover:block hidden transition-all duration-200 ease-out">
-          <h2 class="font-poppinsBold text-xl whitespace-nowrap">{{currentTime | date:'hh:mm a'}}</h2>
-          <p class="font-poppinsMedium text-xs">{{currentTime | date:'ss'}}</p>
-        </div>
+  <header
+    class="w-full h-[10vh] sticky top-0 left-0 z-50 py-3 px-6 flex flex-row-reverse items-center justify-between {{landingPage && !headerToggle?'bg-transparent':'bg-primary'}}">
+    <!-- // Menu -->
+    <label class="hamburger relative">
+      <input type="checkbox" class="cursor-pointer absolute z-10 inset-0 w-full h-[50px] opacity-0" (click)="toggle()">
+      <svg viewBox="0 0 32 32">
+        <path class="line line-top-bottom"
+          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+        </path>
+        <path class="line" d="M7 16 27 16"></path>
+      </svg>
+    </label>
+
+    <div class="relative font-poppinsMedium text-2xl whitespace-nowrap text-myWhite">
+      <div
+        class="absolute left-0 transition-all duration-500 ease {{pageChange === 'hero' && !headerToggle ?'top-0 ':'-top-96'}}">
+        <h2>M Hamza Siddiqui</h2>
       </div>
-    </div>
-    <!-- //Lower -->
-    <div class="relative h-[50%] flex justify-between items-center">
-      <div></div>
-      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'hero' && !headerToggle ?'left-0':'-left-96'}}">
-        <h2>M Hamza<br><span>Siddiqui</span></h2>
+      <div
+        class="absolute left-0 transition-all duration-500 ease {{pageChange === 'about' && !headerToggle ?'top-0':'-top-96'}}">
+        <h2>About Me</h2>
       </div>
-      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'about' && !headerToggle ?'left-0':'-left-96'}}">
-        <h2>About<br><span>Me</span></h2>
+      <div
+        class="absolute left-0 transition-all duration-500 ease {{pageChange === 'projects' && !headerToggle ?'top-0':'-top-96'}}">
+        <h2>My Projects</h2>
       </div>
-      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'projects' && !headerToggle ?'left-0':'-left-96'}}">
-        <h2>My<br><span>Projects</span></h2>
+      <div
+        class="absolute left-0 transition-all duration-500 ease {{pageChange === 'contact' && !headerToggle ?'top-0':'-top-96'}}">
+        <h2>Contact Me</h2>
       </div>
-      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{pageChange === 'contact' && !headerToggle ?'left-0':'-left-96'}}">
-        <h2>Contact<br><span>Me</span></h2>
-      </div>
-      <div class="font-poppinsBold text-3xl text-myWhite absolute top-0 transition-all duration-500 ease {{headerToggle ?'left-0':'-left-96'}}">
+      <div class="absolute left-0 transition-all duration-500 ease {{headerToggle ?'top-0':'-top-96'}}">
         <h2>Menu</h2>
       </div>
-      <label class="ui-switch">
-        <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
-        <div class="slider">
-          <div class="circle bg-myGrayDark"></div>
-        </div>
-      </label>
-
     </div>
   </header>
-  <section class="w-full h-[75vh]">
+  <section class="w-full h-[90vh]">
     <div class="w-[90%] h-full mx-auto flex flex-col justify-center items-center pr-2">
       <div class="mask w-full transition-all duration-300 ease">
         <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full object-cover">
