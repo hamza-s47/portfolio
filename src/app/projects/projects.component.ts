@@ -67,7 +67,7 @@ export class ProjectsComponent {
     {
       title: "Fougito",
       desc: "Explore this dynamic website, powered by Angular CLI for seamless functionality and Tailwind CSS for a modern, stylish look. With intuitive navigation and responsive design, it adapts smoothly to your device. Experience a user-friendly interface that combines the best of technology and aesthetics for an engaging online journey.",
-      url: "https://www.staging.fougito.com/",
+      url: "https://fougito.com/",
       lineClamp: true
     },
     {
