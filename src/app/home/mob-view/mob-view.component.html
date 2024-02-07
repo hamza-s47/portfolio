@@ -75,18 +75,18 @@
     </div>
   </section>
 
-  <section class="w-full h-screen bg-red-300">
+  <section class="w-full h-screen ">
   </section>
 
   <section class="w-full">
 
-    <div class="relative w-[90%] mx-auto h-[500px] rounded-md">
-      <video src="../../../assets/videos/about.mp4" [autoplay]="true" [loop]="true" [muted]="true" class="w-full h-full object-cover rounded-md"></video>
-       <div class="absolute inset-0 w-full h-full bg-myWhite/50 dark:bg-myBlack/50 text-myBlack dark:text-myWhite">
-        <p>Welcome to my Project Showcase, a curated collection of endeavors that reflect my passion for [your field/industry]. Each project is a testament to my skills, creativity, and commitment to delivering impactful solutions. Explore the following highlights:</p>
-        <button class="">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-            <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+    <div class="relative w-[90%] mx-auto h-[500px] rounded-xl">
+      <video src="../../../assets/videos/about.mp4" [autoplay]="true" [loop]="true" [muted]="true" class="w-full h-full object-cover rounded-2xl"></video>
+       <div class="absolute inset-0 flex flex-col justify-center items-center rounded-xl w-full h-full text-myWhite">
+        <p class="w-[90%] text-center text-xl">Welcome to my Project Showcase, a curated collection of endeavors that reflect my passion for [your field/industry]. Each project is a testament to my skills, creativity, and commitment to delivering impactful solutions. Explore the following highlights:</p>
+        <button class="text-myWhite rounded-full p-4 mt-6 bg-myWhite/30" routerLink="/projects">
+          <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 320 512">
+            <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" fill="currentColor"/></svg>
         </button>
        </div>
     </div>
