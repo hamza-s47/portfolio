@@ -102,7 +102,7 @@
         class="absolute inset-0 w-full h-full object-cover"></video> -->
       <div class="w-[55%] h-[80%] flex flex-col justify-center items-center pr-2">
         <div class="mask w-full h-full transition-all duration-300 ease">
-          <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full h-full object-cover">
+          <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full h-full object-cover object-top">
         </div>
         
         <div class="text-myBlack dark:text-myWhite text-center">
@@ -115,9 +115,10 @@
     <!-- ABOUT -->
     <div
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 2 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
-      <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
-        class="absolute inset-0 w-full h-full object-cover"></video>
-      <div class="w-full h-full bg-myWhite/60 dark:bg-myBlack/60 absolute inset-0 flex justify-center items-center">
+      <!-- <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
+        class="absolute inset-0 w-full h-full object-cover"></video> -->
+        <img src="/assets/images/backgrounds/about.webp" alt="about-hamza" class="absolute inset-0 w-full h-full object-cover object-left">
+      <div class="w-full h-full bg-myWhite/85 dark:bg-myBlack/65 absolute inset-0 flex justify-center items-center">
         <div class="w-[80%]  text-myBlack dark:text-myWhite text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
             using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
@@ -232,12 +233,12 @@
     <div
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease bg-primary {{pageChange == 3 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
 
-      <a routerLink="/projects"
+      <a [routerLink]="item?.url" (click)="redirect(item.url)"
         class="w-full h-[25vh] flex items-center justify-between text-myBlack dark:text-myWhite px-10 hover:scale-105 transition-all duration-300 ease {{darkModeValue == 'true'? item.color:item.colorL}}"
         *ngFor="let item of projectData">
         <div>
-          <h3 class="text-2xl font-poppinsBold">{{item.title}}</h3>
-          <p class="line-clamp-2 lg:w-[90%]">{{item.desc}}</p>
+          <h3 class="text-2xl font-poppinsBold">{{item?.title}}</h3>
+          <p class="line-clamp-2 lg:w-[90%]">{{item?.desc}}</p>
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="0 0 320 512">
@@ -274,7 +275,7 @@
               <h2 class="text-2xl text-myWhite font-bold ">Leave your comments!</h2>
               <div
                 class="relative cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease flex justify-center items-center">
-                <img src="../../../assets/images/dp.webp" alt="" class="w-full h-full object-cover rounded-full">
+                <img src="../../../assets/images/dp.webp" alt="" class="w-full h-full object-cover object-top bg-primary rounded-full">
               </div>
 
             </div>
