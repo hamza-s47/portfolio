@@ -162,27 +162,27 @@ export class MainViewComponent implements OnInit {
       title: "Falconpack US",
       desc: "This website/web-app was created utilizing Angular CLI as the foundation, our project seamlessly integrated Tailwind CSS and various Angular libraries to craft a modern web application. This dynamic and responsive interface, enriched with interactive components, efficiently interacted with backend APIs and databases. The project's outcome is a visually appealing, scalable, and user-friendly application, delivering a top-notch web experience.",
       url: "https://falconpack.us/",
-      color: "bg-[#d24a31]",
-      colorL:"bg-[#DF7861]"
+      color: "bg-[#485f76]",
+      colorL:"bg-[#D7A07D]"
     },
     {
       title: "Fougito",
       desc: "Explore this dynamic website, powered by Angular CLI for seamless functionality and Tailwind CSS for a modern, stylish look. With intuitive navigation and responsive design, it adapts smoothly to your device. Experience a user-friendly interface that combines the best of technology and aesthetics for an engaging online journey.",
       url: "https://fougito.com/",
-      color: "bg-[#d7573d]",
+      color: "bg-[#5c6b82]",
       colorL:"bg-[#ECB390]"
     },
     {
       title: "Falconpack | B2B Site",
       desc: "A dynamic e-commerce website crafted using Angular and Tailwind CSS. This project embodies innovation and user-friendly design, through a seamless fusion of front-end technologies, I've created an engaging online shopping experience, complete with dynamic functionalities and visually captivating layouts.",
       url: "https://fpweb.demowbs.com/",
-      color: "bg-[#dc6349]",
+      color: "bg-[#6f7a91]",
       colorL:"bg-[#ECDFC8]"
     },
     {
       title: "See all",
       url: "/projects",
-      color: "bg-[#e17055 ]",
+      color: "bg-[#8190a1]",
       colorL:"bg-[#ECEFE9]"
     }
   ]
