@@ -1,18 +1,21 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
   imports: [
+    LoaderComponent,
     CommonModule,
     RouterModule
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit{
+  loader:boolean = true;
 
   selectedIndex: number | null = null;
   darkMode = signal<any>(this.darkValue);
@@ -29,6 +32,11 @@ export class ProjectsComponent {
       }
 
     });
+  }
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.loader = false;
+    }, 3000);
   }
 
   get darkValue() {  // Returning the boolean value for signal variable

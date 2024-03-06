@@ -1,1 +1,58 @@
-<main class="lg:hidden">Mobile view under development!</main>
+<main class="lg:hidden relative w-full h-screen font-poppinsMedium flex flex-col justify-between pt-6 pb-6 sm:pb-10">
+    <img [src]="imageSrc" alt="" class="absolute z-[-5] object-cover inset-0 w-full h-full">
+    <div class="w-full h-full absolute inset-0 z-[-4] bg-myBlack/75 backdrop-blur-[10px]"></div>
+ 
+    <section class="flex justify-between items-center w-full px-5">
+        <div class="w-14 h-14 md:w-20 md:h-20 rounded-full">
+            <img src="../../../assets/images/dp.webp" alt="" class="w-full h-full rounded-full object-cover object-top bg-primary">
+        </div>
+        
+        <div class="border border-myWhite text-myWhite py-1 pl-[10px] md:pl-3 pr-1 text-sm md:text-xl transition-all duration-300 ease {{menu ? 'bg-primary':''}}" (click)="menu = !menu">
+            <p class="tracking-[5px] md:tracking-[8px]">ME<br>NU</p>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden w-full h-[200px] text-myWhite">
+        <!-- Menu -->
+        <div [@slide] class="absolute top-0 left-5 flex flex-col" *ngIf="menu">
+            <a>Hacker Rank</a>
+            <a>Linkedin</a>
+            <a>Projects</a>
+            <a>Resume</a>
+        </div>
+        <!-- Hero -->
+        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='hero' && !menu">
+            <h2>M Hamza Siddiqui</h2>
+        </div>
+        <!-- About -->
+        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='about' && !menu">
+            <h2>About Me</h2>
+        </div>
+        <!-- Project -->
+        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='project' && !menu">
+            <h2>Projects</h2>
+        </div>
+        <!-- Contact -->
+        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='contact' && !menu">
+            <h2>Contact Me</h2>
+        </div>
+        
+    </section>
+
+    <div class="w-full">
+        <owl-carousel-o [options]="customOptions" >
+            <ng-template carouselSlide *ngFor="let item of content">
+              <div class="relative w-full h-[250px] md:h-[350px] text-myWhite" (click)="switchContent(item)">
+                <img [src]="item?.img" alt="" class="absolute z-[-2] inset-0 w-full h-full object-cover object-right">
+                <div class="w-full flex items-center justify-between bg-myBlack/85 p-3">
+                    <p class="text-2xl w-fit">{{item?.name}}</p>
+                    <button class="w-6 mt-2" >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z" fill="currentColor"/></svg>
+                    </button>
+                </div>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+    </div>
+</main>
