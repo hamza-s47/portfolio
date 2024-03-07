@@ -1,9 +1,9 @@
 <main class="lg:hidden relative w-full h-screen font-poppinsMedium flex flex-col justify-between pt-6 pb-6 sm:pb-10">
     <img [src]="imageSrc" alt="" class="absolute z-[-5] object-cover inset-0 w-full h-full">
-    <div class="w-full h-full absolute inset-0 z-[-4] bg-myBlack/75 backdrop-blur-[10px]"></div>
+    <div class="w-full h-full absolute inset-0 z-[-4] bg-myBlack/50 backdrop-blur-[10px]"></div>
  
     <section class="flex justify-between items-center w-full px-5">
-        <div class="w-14 h-14 md:w-20 md:h-20 rounded-full">
+        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full">
             <img src="../../../assets/images/dp.webp" alt="" class="w-full h-full rounded-full object-cover object-top bg-primary">
         </div>
         
@@ -12,25 +12,35 @@
         </div>
     </section>
 
-    <section class="relative overflow-hidden w-full h-[200px] text-myWhite">
+    <section class="relative overflow-hidden w-full h-[250px] text-myWhite">
         <!-- Menu -->
-        <div [@slide] class="absolute top-0 left-5 flex flex-col" *ngIf="menu">
-            <a>Hacker Rank</a>
-            <a>Linkedin</a>
-            <a>Projects</a>
-            <a>Resume</a>
+        <div [@slide] class="absolute h-full top-0 left-5 flex flex-col justify-center text-xl" *ngIf="menu">
+            <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank" class="mb-2">Hacker Rank</a>
+            <a href="https://www.linkedin.com/in/hamza-s47" target="_blank" class="mb-2">Linkedin</a>
+            <a routerLink="/projects" class="mb-2">Projects</a>
+            <a href="/assets/Resume.pdf" download="M_Hamza_Siddiqui">Résumé</a>
         </div>
         <!-- Hero -->
-        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='hero' && !menu">
-            <h2>M Hamza Siddiqui</h2>
+        <div [@slide] class="absolute h-full top-0 left-5 flex flex-col justify-center" *ngIf="contentSrc=='hero' && !menu">
+            <div>
+                <h3 class="text-sm text-primary">Frontend Angular Developer</h3>
+                <h2 class="font-poppinsBold text-3xl md:text-4xl">M Hamza Siddiqui</h2>
+            </div>
+            <div class="my-2"></div>
+            <p class="w-[90%] md:text-lg">Expert in front-end development, having proven track record in building scalable Single Page Applications (SPAs). <span class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
         </div>
         <!-- About -->
-        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='about' && !menu">
-            <h2>About Me</h2>
+        <div [@slide] class="absolute top-0 left-5 flex flex-col justify-around" *ngIf="contentSrc=='about' && !menu">
+            <h2 class="font-poppinsBold text-3xl">About Me</h2>
+            <p class="w-[90%]">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
+                using TailwindCSS. With a strong foundation in frontend development, I thrive on seamlessly integrating APIs
+                into Angular applications, bringing dynamic functionality to the forefront.</p>
         </div>
         <!-- Project -->
-        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='project' && !menu">
-            <h2>Projects</h2>
+        <div [@slide] class="absolute top-0 left-5 flex flex-col justify-center" *ngIf="contentSrc=='project' && !menu">
+            <h2 class="font-poppinsBold text-3xl">Projects</h2>
+            <p class="w-[90%] my-2">Explore my work, where I turn ideas into captivating digital experiences by blending creative design with advanced technology, making each project a journey of innovation and impact.</p>
+            <button routerLink="/projects" class="text-myWhite bg-primary py-2 px-4 rounded-full w-fit">View projects</button>
         </div>
         <!-- Contact -->
         <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='contact' && !menu">

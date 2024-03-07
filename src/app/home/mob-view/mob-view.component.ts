@@ -21,9 +21,9 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
   animations: [
     trigger('slide', [
       state('void', style({
-        left: -500
+        left: -500,
       })),
-      transition('void <=> *', animate(500)),
+      transition('void <=> *', animate(100)),
     ])
   ]
 })
