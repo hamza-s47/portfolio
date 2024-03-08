@@ -31,9 +31,42 @@ export class MobViewComponent implements OnInit, AfterViewInit {
   imageSrc:string = '/assets/images/mobile/hero.webp';
   contentSrc:string = 'hero';
   menu:boolean = false;
+  darkModeValue: any;
+  darkMode = signal<any>(this.darkValue);
+  @HostBinding('class.dark') get mode() {
+    return this.darkMode();
+  }
 
   constructor(@Inject(PLATFORM_ID) private platformId: object){
-    
+    effect(() => {
+      if (isPlatformBrowser(this.platformId)) {  // Using isPlatform for local storage error in ssr
+        localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+        setTimeout(() => {
+          this.darkModeValue = localStorage.getItem('dark');  // For toggle button, the boolean is string acctually
+        }, 10);
+      }
+
+    });
+  }
+  get darkValue() {  // Returning the boolean value for signal variable
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(localStorage.getItem('darkMode') ?? 'false');
+    }
+  }
+  
+  checkboxValue(val: any) {
+    // console.warn(val.target.checked);
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.darkMode()) {
+        JSON.stringify(localStorage.setItem('dark', 'false'));
+      }
+      else {
+        JSON.stringify(localStorage.setItem('dark', 'true'));
+      }
+
+    }
+
+    this.darkMode.set(!this.darkMode())
   }
 
   ngAfterViewInit(): void {
