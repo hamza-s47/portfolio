@@ -38,8 +38,8 @@
     <main class="w-[80%] h-[90vh] flex flex-col justify-between">
       <section class="flex justify-between items-center">
         <div class="cursor-default text-myGrayDark dark:text-myGray">
-            <h2 class="font-poppinsBold text-3xl xl:text-4xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
-            <p class="font-poppinsMedium text-sm">{{currentTime | date:'MMM dd, yyyy'}}</p>
+          <h2 class="font-poppinsBold text-3xl xl:text-4xl whitespace-nowrap">{{currentTime | date:'EEEE'}}</h2>
+          <p class="font-poppinsMedium text-sm">{{currentTime | date:'MMM dd, yyyy'}}</p>
         </div>
 
         <!-- DARK MODE -->
@@ -69,16 +69,16 @@
 
           <div
             class="absolute h-full top-0 z-[4] text-xl text-myGrayDark dark:text-myGray transition-all duration-1000 ease {{headerToggle ? 'left-0':'-left-96'}}">
-            <ul class="h-[90%] flex flex-col justify-around">
-              <a href="../../../assets/Resume.pdf" download="M_Hamza_Siddiqui"
-                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</a>
+            <div class="h-[90%] flex flex-col justify-around">
               <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Hacker Rank</a>
               <a href="https://www.linkedin.com/in/hamza-s47" target="_blank"
                 class="cursor-pointer hover:text-primary transition-all duration-300 ease">Linkedin</a>
-              <a routerLink="/projects"
-                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Projects</a>
-            </ul>
+              <a routerLink="/projects" class="cursor-pointer hover:text-primary transition-all duration-300 ease">My
+                Projects</a>
+              <a href="../../../assets/Resume.pdf" download="M_Hamza_Siddiqui"
+                class="cursor-pointer hover:text-primary transition-all duration-300 ease">Résumé</a>
+            </div>
           </div>
         </div>
         <!-- <div class="my-6"></div> -->
@@ -100,14 +100,16 @@
       <!-- <img src="../../../assets/images/about.jpg" alt="" class="w-full h-full object-cover"> -->
       <!-- <video src="../../../assets/videos/home.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video> -->
-      <div class="w-[55%] h-[80%] flex flex-col justify-center items-center pr-2">
+      <div class="w-[55%] h-[80%] flex flex-col justify-center items-center pr-8">
         <div class="mask w-full h-full transition-all duration-300 ease">
           <img src="../../../assets/images/dp.webp" alt="" class="bg-primary w-full h-full object-cover object-top">
         </div>
-        
+
         <div class="text-myBlack dark:text-myWhite text-center">
           <h2 class="font-poppinsBold text-3xl text-primary">Frontend Angular Developer</h2>
-          <p class="w-[80%] mx-auto text-sm mt-2">Expert in front-end development, having proven track record in building scalable Single Page Applications (SPAs). <span class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
+          <p class="w-[80%] mx-auto text-sm mt-2">Expert in front-end development, having proven track record in
+            building scalable Single Page Applications (SPAs). <span class="text-myWhite bg-primary px-1 pb-[1px]">Open
+              to Collaborate!</span></p>
         </div>
       </div>
     </div>
@@ -117,7 +119,8 @@
       class="absolute inset-0 w-full h-full transition-all duration-1000 ease  {{pageChange == 2 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
       <!-- <video src="../../../assets/videos/about.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute inset-0 w-full h-full object-cover"></video> -->
-        <img src="/assets/images/backgrounds/about.webp" alt="about-hamza" class="absolute inset-0 w-full h-full object-cover object-left">
+      <img src="/assets/images/backgrounds/about.webp" alt="about-hamza"
+        class="absolute inset-0 w-full h-full object-cover object-left">
       <div class="w-full h-full bg-myWhite/85 dark:bg-myBlack/65 absolute inset-0 flex justify-center items-center">
         <div class="w-[80%]  text-myBlack dark:text-myWhite text-lg">
           <p class="">I'm a passionate Angular developer with a knack for crafting sleek, responsive user interfaces
@@ -125,8 +128,9 @@
             into Angular applications, bringing dynamic functionality to the forefront.</p>
           <p><br>
             My approach to development revolves around creating intuitive, user-friendly experiences while optimizing
-            performance and scalability. Outside of coding, I enjoy exploring new technologies, engaging in continuous
-            learning, and contributing to the tech community through sharing knowledge and insights.
+            performance and scalability. Outside of coding, I enjoy exploring new technologies and engaging in
+            continuous
+            learning.
           </p><br>
           <h2 class="font-poppinsBold text-xl mb-4">SKILLS SNAPSHOT</h2>
           <!-- Skill -->
@@ -254,7 +258,9 @@
       class="overflow-hidden absolute inset-0 w-full h-full flex justify-center items-end transition-all duration-1000 ease {{pageChange == 4 ? 'top-0 z-[100]' : '-top-[100vh]'}}">
       <video src="../../../assets/videos/contact.mp4" [autoplay]="true" [muted]="true" [loop]="true"
         class="absolute -z-[2] inset-0 w-full h-full object-cover"></video>
-        <div class="absolute -z-[1] inset-0 w-full h-full bg-myWhite/65 dark:bg-transparent transition-all duration-300 ease"></div>
+      <div
+        class="absolute -z-[1] inset-0 w-full h-full bg-myWhite/65 dark:bg-transparent transition-all duration-300 ease">
+      </div>
 
       <div
         class="overflow-hidden absolute left-0 w-full h-[15vh] flex justify-center items-center transition-all duration-1000 ease {{pageChange == 4 ? 'top-0 delay-300':'-top-96'}}">
@@ -274,7 +280,8 @@
               <h2 class="text-2xl text-myWhite font-bold ">Leave your comments!</h2>
               <div
                 class="relative cursor-pointer w-14 h-14 rounded-full transition-all duration-75 ease flex justify-center items-center">
-                <img src="../../../assets/images/dp.webp" alt="" class="w-full h-full object-cover object-top bg-primary rounded-full">
+                <img src="../../../assets/images/dp.webp" alt=""
+                  class="w-full h-full object-cover object-top bg-primary rounded-full">
               </div>
 
             </div>
@@ -282,30 +289,30 @@
             <form [formGroup]="contactForm" (submit)="onSubmit(contactForm.value)" class="text-myWhite">
               <div class="mb-4">
                 <label class="block " for="name">Your Name</label>
-                <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack" id="name"
-                  type="text" />
-                <small class="text-red-500" *ngIf="isNameRequired">Name is required *</small>
+                <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack"
+                  id="name" type="text" />
+                <small class="text-red-400 dark:text-red-700" *ngIf="isNameRequired">Name is required *</small>
               </div>
 
               <div class="mb-4">
                 <label class="block " for="email">Your Email</label>
-                <input formControlName="email" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack" id="email"
-                  type="email" />
-                <small class="text-red-500" *ngIf="isEmailRequired">Email is required *</small>
-                <small class="text-red-500" *ngIf="isEmailValid">Enter valid email</small>
+                <input formControlName="email" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack"
+                  id="email" type="email" />
+                <small class="text-red-400 dark:text-red-700" *ngIf="isEmailRequired">Email is required *</small>
+                <small class="text-red-400 dark:text-red-700" *ngIf="isEmailValid">Enter valid email</small>
               </div>
 
               <div class="mb-4">
                 <label class="block " for="contact">Your Contact (optional)</label>
-                <input formControlName="contact" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack" id="contact"
-                  type="text" />
+                <input formControlName="contact" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack"
+                  id="contact" type="text" />
               </div>
 
               <div class="mb-4">
                 <label class="block " for="bio">Your Message</label>
-                <textarea formControlName="message" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack" rows="3"
-                  id="bio"></textarea>
-                <small class="text-red-500" *ngIf="isMessageRequired">Message is required *</small>
+                <textarea formControlName="message"
+                  class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack" rows="3" id="bio"></textarea>
+                <small class="text-red-400 dark:text-red-700" *ngIf="isMessageRequired">Message is required *</small>
               </div>
 
               <div class="flex justify-end">

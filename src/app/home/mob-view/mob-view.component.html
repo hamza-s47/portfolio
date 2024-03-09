@@ -1,78 +1,143 @@
-<main class="lg:hidden bg-myWhite transition-all duration-300 dark:bg-myBlack relative w-full h-screen font-poppinsMedium flex flex-col justify-between py-5 min-[600px]:py-6 md:py-8">
-    <!-- <img [src]="imageSrc" alt="" class="absolute z-[-5] object-cover inset-0 w-full h-full">
-    <div class="w-full h-full absolute inset-0 z-[-4] bg-myBlack/50 backdrop-blur-[10px]"></div> -->
- 
+<main
+    class="lg:hidden bg-myWhite transition-all duration-300 dark:bg-myBlack relative w-full h-screen font-poppinsMedium flex flex-col justify-between py-5 min-[600px]:py-6 md:py-8">
+
     <section class="flex justify-between items-center w-full px-5 min-[600px]:px-6 md:px-8">
         <!-- DARK MODE -->
         <label class="ui-switch">
             <input type="checkbox" (change)="checkboxValue($event)" [checked]="darkModeValue == 'true' ? true : false">
             <div class="slider">
-              <div class="circle transition-all duration-300 bg-orange-500 dark:bg-myGrayDark"></div>
+                <div class="circle transition-all duration-300 bg-orange-500 dark:bg-myGrayDark"></div>
             </div>
         </label>
-          <!-- DARK MODE END -->
-        
-        <div class="border dark:border-myWhite border-myBlack dark:text-myWhite text-myBlack py-1 pl-[10px] md:pl-3 pr-1 text-sm md:text-xl transition-all duration-300 ease {{menu ? 'bg-primary':''}}" (click)="menu = !menu">
+        <!-- DARK MODE END -->
+
+        <div class="border dark:border-myWhite border-myBlack dark:text-myWhite text-myBlack py-1 pl-[10px] md:pl-3 pr-1 text-sm md:text-xl transition-all duration-300 ease {{menu ? 'bg-primary':''}}"
+            (click)="menu = !menu">
             <p class="tracking-[5px] md:tracking-[8px]">ME<br>NU</p>
         </div>
     </section>
 
-    <section class="relative overflow-hidden w-full h-[280px] md:h-[300px]  text-myBlack dark:text-myWhite">
+    <section class="relative overflow-hidden w-full h-[280px] md:h-[300px] text-myBlack dark:text-myWhite">
         <!-- Menu -->
-        <div [@slide] class="absolute h-full inset-0 m-auto flex flex-col items-center justify-around text-2xl min-[600px]:text-3xl md:text-4xl text-center" *ngIf="menu">
+        <div [@slide]
+            class="absolute h-full inset-0 m-auto flex flex-col items-center justify-around text-2xl min-[600px]:text-3xl md:text-4xl text-center"
+            *ngIf="menu">
             <a href="https://www.hackerrank.com/profile/hamza_siddiqui41" target="_blank" class="">Hacker Rank</a>
             <a href="https://www.linkedin.com/in/hamza-s47" target="_blank" class="">Linkedin</a>
             <a routerLink="/projects" class="">My Projects</a>
             <a href="/assets/Resume.pdf" download="M_Hamza_Siddiqui">Résumé</a>
         </div>
         <!-- Hero -->
-        <div [@slide] class="absolute h-full top-0 left-5 min-[600px]:left-6 md:left-8 flex flex-col justify-center" *ngIf="contentSrc=='hero' && !menu">
+        <div [@slide]
+            class="absolute h-full top-0 bottom-0 my-auto left-5 min-[600px]:left-6 md:left-8 flex flex-col justify-center"
+            *ngIf="contentSrc=='hero' && !menu">
             <div>
                 <h3 class="min-[600px]:text-xl md:text-2xl text-primary">Frontend Angular Developer</h3>
-                <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl">M Hamza Siddiqui</h2>
+                <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">M Hamza Siddiqui</h2>
             </div>
             <div class="my-2"></div>
-            <p class="w-[90%] min-[600px]:text-xl md:text-2xl">Expert in front-end development, having proven track record in building scalable Single Page Applications (SPAs). <span class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
+            <p class="w-[90%] min-[600px]:text-xl md:text-2xl">Expert in front-end development, having proven track
+                record in building scalable Single Page Applications (SPAs). <span
+                    class="text-myWhite bg-primary px-1 pb-[1px]">Open to Collaborate!</span></p>
         </div>
         <!-- About -->
-        <div [@slide] class="absolute top-0 left-5 flex flex-col justify-around" *ngIf="contentSrc=='about' && !menu">
-            <h2 class="font-poppinsBold text-3xl">About Me</h2>
-        <ul class="w-[88%] min-[600px]:w-[90%] mx-auto list-disc leading-6">
-            <li>Expert in crafting sleek, user-friendly and responsive UI.</li>
-            <li>Skilled in integrating APIs.</li>
-            <li>Prioritize performance and scalability optimization</li>
-            <li>Strong foundation in frontend development, focus on bringing dynamic functionality to the forefront.</li>
-            <li>Passion for exploring new technologies.</li>
-            <li>Committed to continuous learning.</li>
-        </ul>
+        <div [@slide] class="absolute top-0 bottom-0 my-auto left-5 flex flex-col justify-around"
+            *ngIf="contentSrc=='about' && !menu">
+            <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">About Me</h2>
+            <ul
+                class="w-[85%] h-full flex flex-col justify-between min-[600px]:w-[90%] mx-auto list-disc leading-6 text-sm min-[600px]:text-base md:text-lg mt-2 md:mt-4">
+                <li>Expert in crafting sleek, user-friendly and responsive UI.</li>
+                <li>Skilled in integrating APIs.</li>
+                <li>Prioritize performance and scalability optimization</li>
+                <li>Strong foundation in frontend development, focus on bringing dynamic functionality to the forefront.
+                </li>
+                <li>Passion for exploring new technologies.</li>
+                <li>Committed to continuous learning.</li>
+            </ul>
+        </div>
+        <!-- Skills -->
+        <div [@slide] class="absolute top-0 bottom-0 my-auto left-5 flex flex-col justify-around"
+            *ngIf="contentSrc=='skill' && !menu">
+            <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">Skills Snapshot</h2>
+            <ul
+                class="w-[85%] h-full flex flex-col justify-between min-[600px]:w-[90%] mx-auto list-disc leading-6 text-sm min-[600px]:text-base md:text-lg mt-2 md:mt-4">
+                <li>Fluent in <span class="text-myWhite bg-[#dd1b16] px-1 pb-[1px]">Angular</span></li>
+                <li>Strong command over <span class="text-myBlack bg-[#F0DB4F] px-1 pb-[1px]">Javascript</span> and <span class="text-myWhite bg-[#007acc] px-1 pb-[1px]">Typescript</span></li>
+                <li>Equipped with a comprehensive toolkit encompassing <span class="text-myWhite bg-[#cc6699] px-1 pb-[1px]">SCSS</span> , <span class="text-myWhite bg-[#e34c26] px-1 pb-[1px]">HTML</span> , <span class="text-myWhite bg-[#2965f1] px-1 pb-[1px]">CSS</span> , and <span class="text-myBlack bg-[#38BDF8] px-1 pb-[1px]">Tailwind CSS</span></li>
+                <li>Proficient in utilizing <span class="text-myWhite bg-[#3FA037] px-1 pb-[1px]">MongoDB</span></li>
+                <li>Comfortable working with <span class="text-myWhite bg-[#5E97D0] px-1 pb-[1px]">C++</span></li>
+            </ul>
         </div>
         <!-- Project -->
-        <div [@slide] class="absolute top-0 left-5 flex flex-col justify-center" *ngIf="contentSrc=='project' && !menu">
-            <h2 class="font-poppinsBold text-3xl">Projects</h2>
-            <p class="w-[90%] my-2">Explore my work, where I turn ideas into captivating digital experiences by blending creative design with advanced technology, making each project a journey of innovation and impact.</p>
-            <button routerLink="/projects" class="text-myWhite bg-primary py-2 px-4 rounded-full w-fit">View projects</button>
+        <div [@slide] class="absolute top-0 bottom-0 my-auto left-5 flex flex-col justify-center"
+            *ngIf="contentSrc=='project' && !menu">
+            <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">Projects</h2>
+            <p class="w-[90%] my-2 sm:my-3 md:my-4 min-[600px]:text-xl md:text-2xl"><span class="text-myWhite bg-primary px-1 pb-[1px]">Explore my work</span> , where I turn ideas
+                into captivating digital experiences by blending creative design with advanced technology, making each
+                project a journey of innovation and impact.</p>
+            <button routerLink="/projects" class="text-myWhite bg-primary py-2 px-4 rounded-full w-fit text-sm md:text-lg">View projects</button>
         </div>
         <!-- Contact -->
-        <div [@slide] class="absolute top-0 left-5" *ngIf="contentSrc=='contact' && !menu">
-            <h2>Contact Me</h2>
+        <div [@slide] class="absolute top-0 bottom-0 my-auto left-5 flex flex-col overflow-hidden"
+            *ngIf="contentSrc=='contact' && !menu">
+            <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">Contact Me</h2>
+            <p class="w-[90%] my-2 sm:my-3 md:my-4 min-[600px]:text-xl md:text-2xl">Whether you have questions or ideas
+                to share, don't hesitate to <span class="text-myWhite bg-primary px-1 pb-[1px]">get in touch!</span> Your thoughts matter and I'm here to provide assistance.</p>
+            <div class="flex w-full text-myWhite dark:text-myBlack">
+                <!-- Email -->
+                <div
+                    class="group relative w-14 h-14 md:w-16 md:h-16  bg-myBlack dark:bg-myWhite rounded-full mr-3 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512">
+                        <path
+                            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                            fill="currentColor" />
+                    </svg>
+                    <a href="mailto:hamza.siddiqui4747@gmail.com"
+                        class="absolute -bottom-96 left-0 group-hover:-bottom-12 md:text-xl p-2 rounded-md bg-myBlack dark:bg-myWhite transition-all duration-500 ease whitespace-nowrap">hamza.siddiqui4747&#64;gmail.com</a>
+                </div>
+                <!-- Linkedin -->
+                <div
+                    class="group relative w-14 h-14 md:w-16 md:h-16  bg-myBlack dark:bg-myWhite rounded-full mr-3 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512">
+                        <path
+                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                            fill="currentColor" />
+                    </svg>
+                    <a href="https://linkedin.com/in/hamza-s47" target="_blank"
+                        class="absolute -bottom-96 left-0 group-hover:-bottom-12 md:text-xl p-2 rounded-md bg-myBlack dark:bg-myWhite transition-all duration-500 ease whitespace-nowrap">&#64;hamza-s47</a>
+                </div>
+                <!-- whatsapp -->
+                <div
+                    class="group relative w-14 h-14 md:w-16 md:h-16  bg-myBlack dark:bg-myWhite rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512">
+                        <path
+                            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+                            fill="currentColor" />
+                    </svg>
+                    <a href="https://api.whatsapp.com/send?phone=923112463375&text=Hello Hamza!" target="_blank"
+                        class="absolute -bottom-96 left-0 group-hover:-bottom-12 md:text-xl p-2 rounded-md bg-myBlack dark:bg-myWhite transition-all duration-500 ease whitespace-nowrap">+92 311 246 3375</a>
+                </div>
+            </div>
         </div>
-        
+
     </section>
 
     <div class="w-full">
-        <owl-carousel-o [options]="customOptions" >
+        <owl-carousel-o [options]="customOptions">
             <ng-template carouselSlide *ngFor="let item of content">
-              <div class="relative w-full h-[250px] md:h-[350px] text-myWhite" (click)="switchContent(item)">
-                <img [src]="item?.img" alt="" class="absolute z-[-2] inset-0 w-full h-full object-cover object-right">
-                <div class="w-full flex items-center justify-between bg-myBlack/85 p-3">
-                    <p class="text-2xl w-fit">{{item?.name}}</p>
-                    <button class="w-6 mt-2" >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z" fill="currentColor"/></svg>
-                    </button>
+                <div class="w-full h-[250px] md:h-[350px] rounded-lg {{item.color}} {{item.colorL}} text-myWhite dark:text-myBlack flex justify-center items-center"(click)="switchContent(item)">
+                    <div class="w-full flex flex-col justify-center items-center">
+                        <p class="text-3xl md:text-4xl uppercase">{{item?.name}}</p>
+                        <button class="w-10 mt-2 md:mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-              </div>
             </ng-template>
-          </owl-carousel-o>
+        </owl-carousel-o>
     </div>
 </main>

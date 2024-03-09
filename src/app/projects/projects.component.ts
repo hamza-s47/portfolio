@@ -36,7 +36,7 @@ export class ProjectsComponent implements AfterViewInit{
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
   get darkValue() {  // Returning the boolean value for signal variable
