@@ -63,7 +63,7 @@ export class ProjectsComponent implements AfterViewInit{
     {
       title: "Falconpack | B2B Site",
       desc: "A dynamic e-commerce website crafted using Angular and Tailwind CSS. This project embodies innovation and user-friendly design, through a seamless fusion of front-end technologies, I've created an engaging online shopping experience, complete with dynamic functionalities and visually captivating layouts.",
-      url: "https://fpweb.demowbs.com/",
+      url: "https://online.falconpack.us/",
       lineClamp: true
     },
     {
@@ -91,6 +91,4 @@ export class ProjectsComponent implements AfterViewInit{
       lineClamp: true
     }
   ]
-
-  
 }
