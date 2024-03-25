@@ -17,7 +17,7 @@
         </div>
     </section>
 
-    <section class="relative overflow-hidden w-full h-[280px] md:h-[300px] text-myBlack dark:text-myWhite">
+    <section class="relative overflow-hidden w-full h-[330px] text-myBlack dark:text-myWhite">
         <!-- Menu -->
         <div [@slide]
             class="absolute h-full inset-0 m-auto flex flex-col items-center justify-around text-2xl min-[600px]:text-3xl md:text-4xl text-center"
@@ -46,10 +46,10 @@
             <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">About Me</h2>
             <ul
                 class="w-[85%] h-full flex flex-col justify-between min-[600px]:w-[90%] mx-auto list-disc leading-6 text-sm min-[600px]:text-base md:text-lg mt-2 md:mt-4">
-                <li>Expert in crafting sleek, user-friendly and responsive UI.</li>
-                <li>Skilled in integrating APIs.</li>
-                <li>Prioritize performance and scalability optimization</li>
-                <li>Strong foundation in frontend development, focus on bringing dynamic functionality to the forefront.
+                <li>Expert in building sleek, user-friendly and responsive UI.</li>
+                <li>Skilled in integrating APIs and adding smart logic to make everything work smoothly.</li>
+                <li>Prioritize performance and scalability optimization.</li>
+                <li>Strong foundation in frontend development and looking to level up my skills into full-stack development.
                 </li>
                 <li>Passion for exploring new technologies.</li>
                 <li>Committed to continuous learning.</li>
@@ -65,7 +65,7 @@
                 <li>Strong command over <span class="text-myBlack bg-[#F0DB4F] px-1 pb-[1px]">Javascript</span> and <span class="text-myWhite bg-[#007acc] px-1 pb-[1px]">Typescript</span></li>
                 <li>Equipped with a comprehensive toolkit encompassing <span class="text-myWhite bg-[#cc6699] px-1 pb-[1px]">SCSS</span> , <span class="text-myWhite bg-[#e34c26] px-1 pb-[1px]">HTML</span> , <span class="text-myWhite bg-[#2965f1] px-1 pb-[1px]">CSS</span> , and <span class="text-myBlack bg-[#38BDF8] px-1 pb-[1px]">Tailwind CSS</span></li>
                 <li>Proficient in utilizing <span class="text-myWhite bg-[#3FA037] px-1 pb-[1px]">MongoDB</span></li>
-                <li>Basic API experience with <span class="text-myWhite bg-[#6cc24a] px-1 pb-[1px]">Node</span>/<span class="text-myWhite bg-[#44883e] px-1 pb-[1px]">Express</span>and <span class="text-myWhite bg-[#01ADD8] px-1 pb-[1px]">Go</span></li>
+                <li>Basic API building experience with <span class="text-myWhite bg-[#6cc24a] px-1 pb-[1px]">Node</span>/<span class="text-myWhite bg-[#44883e] px-1 pb-[1px]">Express</span> and <span class="text-myWhite bg-[#01ADD8] px-1 pb-[1px]">Go</span></li>
             </ul>
         </div>
         <!-- Project -->
@@ -78,7 +78,7 @@
             <button routerLink="/projects" class="text-myWhite bg-primary py-2 px-4 rounded-full w-fit text-sm md:text-lg">View projects</button>
         </div>
         <!-- Contact -->
-        <div [@slide] class="absolute top-0 bottom-0 my-auto left-5 flex flex-col overflow-hidden"
+        <div [@slide] class="absolute top-0 bottom-0 my-auto left-5 flex flex-col justify-center overflow-hidden"
             *ngIf="contentSrc=='contact' && !menu">
             <h2 class="font-poppinsBold text-3xl min-[600px]:text-5xl md:text-6xl uppercase">Contact Me</h2>
             <p class="w-[90%] my-2 sm:my-3 md:my-4 min-[600px]:text-xl md:text-2xl">Whether you have questions or ideas
@@ -125,7 +125,7 @@
     <div class="w-full">
         <owl-carousel-o [options]="customOptions">
             <ng-template carouselSlide *ngFor="let item of content">
-                <div class="w-full h-[250px] md:h-[350px] rounded-lg {{item.color}} {{item.colorL}} text-myWhite dark:text-myBlack flex justify-center items-center"(click)="switchContent(item)">
+                <div class="w-full h-[150px] md:h-[250px] rounded-lg {{item.color}} {{item.colorL}} text-myWhite dark:text-myBlack flex justify-center items-center"(click)="switchContent(item)">
                     <div class="w-full flex flex-col justify-center items-center">
                         <p class="text-3xl md:text-4xl uppercase">{{item?.name}}</p>
                         <button class="w-10 mt-2 md:mt-4">
