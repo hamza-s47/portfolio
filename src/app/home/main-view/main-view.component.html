@@ -355,7 +355,7 @@
 
             </div>
 
-            <form [formGroup]="contactForm" (submit)="onSubmit(contactForm.value)" class="text-myWhite">
+            <form [formGroup]="contactForm" (submit)="onSubmit(contactForm)" class="text-myWhite">
               <div class="mb-4">
                 <label class="block " for="name">Your Name</label>
                 <input formControlName="name" class="focus:outline-primary mt-1 p-2 w-full rounded-md text-myBlack"
@@ -435,3 +435,22 @@
     </div>
   </section>
 </main>
+<!-- Toastr -->
+<div *ngIf="toastconfig.isShow" class="fixed top-6 right-3 z-[100] font-poppinsMedium flex items-center w-full max-w-xs p-4 text-myGrayDark {{toastconfig.color}} rounded-lg shadow dark:text-myGray">
+  <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-gray-800 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-gray-100">
+    <svg *ngIf="toastconfig.icon === 'success'" class="animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" stroke="currentColor" fill="currentColor" height="15" width="15">
+      <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+      <svg *ngIf="toastconfig.icon === 'error'" class="animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" height="15" width="15">
+        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
+        <svg *ngIf="toastconfig.icon === 'wait'" class="animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" height="12" width="12">
+          <path d="M0 24C0 10.7 10.7 0 24 0H360c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V67c0 40.3-16 79-44.5 107.5L225.9 256l81.5 81.5C336 366 352 404.7 352 445v19h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H24c-13.3 0-24-10.7-24-24s10.7-24 24-24h8V445c0-40.3 16-79 44.5-107.5L158.1 256 76.5 174.5C48 146 32 107.3 32 67V48H24C10.7 48 0 37.3 0 24zM110.5 371.5c-3.9 3.9-7.5 8.1-10.7 12.5H284.2c-3.2-4.4-6.8-8.6-10.7-12.5L192 289.9l-81.5 81.5zM284.2 128C297 110.4 304 89 304 67V48H80V67c0 22.1 7 43.4 19.8 61H284.2z"/></svg>
+  </div>
+  <div class="ms-3 text-sm font-normal">{{toastconfig.message}}</div>
+  <button (click)="toastconfig.isShow=false" type="button" class="ms-auto -mx-1.5 -my-1.5 text-gray-400 rounded-lg p-1.5 inline-flex items-center justify-center h-8 w-8">
+      
+      <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+      </svg>
+  </button>
+</div>
+

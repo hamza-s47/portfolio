@@ -2,6 +2,9 @@ import { Component, HostBinding, OnInit, effect, signal, Inject, PLATFORM_ID, Ho
 import { CommonModule, DatePipe, isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ApiService } from '../../api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Itoastr } from '../../interfaces/models';
 
 @Component({
   selector: 'app-main-view',
@@ -11,7 +14,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     DatePipe,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   templateUrl: './main-view.component.html',
   styleUrl: './main-view.component.scss'
@@ -19,6 +23,12 @@ import { RouterModule } from '@angular/router';
 export class MainViewComponent implements OnInit {
 
   // keyEvent:any;
+  toastconfig: Itoastr = {
+    color: '',
+    icon: '',
+    message: 'Init',
+    isShow: false
+  }
   contactForm: FormGroup | any;
   currentTime: Date = new Date();
   pageChange: number = 1;
@@ -62,7 +72,7 @@ export class MainViewComponent implements OnInit {
     }
   }
 
-  constructor(private _fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: object) {
+  constructor(private _fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: object, private _api: ApiService) {
 
     effect(() => {
       if (isPlatformBrowser(this.platformId)) {  // Using isPlatform for local storage error in ssr
@@ -74,6 +84,8 @@ export class MainViewComponent implements OnInit {
 
     });
   }
+
+
 
   get darkValue() {  // Returning the boolean value for signal variable
     if (isPlatformBrowser(this.platformId)) {
@@ -120,8 +132,40 @@ export class MainViewComponent implements OnInit {
     this.darkMode.set(!this.darkMode())
   }
   onSubmit(form: any) {
-    console.warn(form)
-    this.contactForm.reset()
+    form.value['time'] = new Date;
+    this.toastconfig = {
+      color: 'bg-gray-300 dark:bg-gray-600',
+      icon: 'wait',
+      message: 'Your response is being submited😒',
+      isShow: true
+    }
+
+    this._api.contactForm(form.value).subscribe({
+      next:(res)=> {
+        this.toastconfig = {
+          color: 'bg-green-300 dark:bg-green-600',
+          icon: 'success',
+          message: 'Your response has been submited🙂',
+          isShow: true
+        }
+        form.reset();
+      },
+      error:(err)=> {
+        this.toastconfig = {
+          color: 'bg-red-300 dark:bg-red-600',
+          icon: 'error',
+          message: 'Oops! There is an internal error😵',
+          isShow: true
+        }
+        console.error(err.message);
+      }
+    });
+    if(this.toastconfig.isShow){
+      setTimeout(() => {
+        this.toastconfig.isShow = false;
+      }, 5000);  
+    }
+    
   }
   ngOnInit(): void {
     this.contactForm = this._fb.group({
@@ -149,9 +193,9 @@ export class MainViewComponent implements OnInit {
     return messageControl.invalid && messageControl.touched;
   }
 
-  redirect(url:string){
-    if (isPlatformBrowser(this.platformId)){
-      if(url !== '/projects'){
+  redirect(url: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      if (url !== '/projects') {
         open(url, '_blank');
       }
     }
@@ -163,27 +207,27 @@ export class MainViewComponent implements OnInit {
       desc: "This website/web-app was created utilizing Angular CLI as the foundation, our project seamlessly integrated Tailwind CSS and various Angular libraries to craft a modern web application. This dynamic and responsive interface, enriched with interactive components, efficiently interacted with backend APIs and databases. The project's outcome is a visually appealing, scalable, and user-friendly application, delivering a top-notch web experience.",
       url: "https://falconpack.us/",
       color: "bg-[#485f76]",
-      colorL:"bg-[#D7A07D]"
+      colorL: "bg-[#D7A07D]"
     },
     {
       title: "Fougito",
       desc: "Explore this dynamic website, powered by Angular CLI for seamless functionality and Tailwind CSS for a modern, stylish look. With intuitive navigation and responsive design, it adapts smoothly to your device. Experience a user-friendly interface that combines the best of technology and aesthetics for an engaging online journey.",
       url: "https://fougito.com/",
       color: "bg-[#5c6b82]",
-      colorL:"bg-[#ECB390]"
+      colorL: "bg-[#ECB390]"
     },
     {
       title: "Falconpack | B2B Site",
       desc: "A dynamic e-commerce website crafted using Angular and Tailwind CSS. This project embodies innovation and user-friendly design, through a seamless fusion of front-end technologies, I've created an engaging online shopping experience, complete with dynamic functionalities and visually captivating layouts.",
       url: "https://online.falconpack.us/",
       color: "bg-[#6f7a91]",
-      colorL:"bg-[#ECDFC8]"
+      colorL: "bg-[#ECDFC8]"
     },
     {
       title: "See all",
       url: "/projects",
       color: "bg-[#8190a1]",
-      colorL:"bg-[#ECEFE9]"
+      colorL: "bg-[#ECEFE9]"
     }
   ]
 
