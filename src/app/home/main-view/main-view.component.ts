@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Itoastr } from '../../interfaces/models';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main-view',
@@ -35,6 +36,7 @@ export class MainViewComponent implements OnInit {
   headerCount: number = 1;
   skillCounter: number = 0;
   headerToggle: boolean = false;
+  profileImageUrl: SafeUrl | null = null;
   darkModeValue: any;
   darkMode = signal<any>(this.darkValue);
   @HostBinding('class.dark') get mode() {
@@ -72,7 +74,7 @@ export class MainViewComponent implements OnInit {
     }
   }
 
-  constructor(private _fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: object, private _api: ApiService) {
+  constructor(private _fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: object, private _api: ApiService, private sanitizer: DomSanitizer) {
 
     effect(() => {
       if (isPlatformBrowser(this.platformId)) {  // Using isPlatform for local storage error in ssr
@@ -168,11 +170,25 @@ export class MainViewComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    this.loadProfileImage();
     this.contactForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       contact: [''],
       message: ['', Validators.required]
+    });
+  }
+
+  loadProfileImage(): void {
+    this._api.getImage().subscribe({
+      next:(res:any)=>{
+        const url = window.URL.createObjectURL(res);
+        this.profileImageUrl = this.sanitizer.bypassSecurityTrustUrl(url);
+        console.warn(this.profileImageUrl)
+      },
+      error:(error)=>{
+        console.error('Error fetching profile image: ', error);
+      }
     });
   }
 
